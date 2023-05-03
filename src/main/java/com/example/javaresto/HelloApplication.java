@@ -1,5 +1,6 @@
 package com.example.javaresto;
 
+import com.example.javaresto.classes.Restaurant;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,7 +18,9 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+    public void GenerateRestaurant() {
+         Restaurant resto = new Restaurant("RestoJava", "42 Rue de la Java", "Le meilleur restaurant de la JavaVille");
+    }
     public static void main(String[] args) {
         launch();
         Chrono chrono = new Chrono();

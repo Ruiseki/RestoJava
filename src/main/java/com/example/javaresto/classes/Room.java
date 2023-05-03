@@ -1,6 +1,7 @@
 package com.example.javaresto.classes;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Room {
     private String id;
@@ -8,9 +9,10 @@ public class Room {
     private boolean available;
     private List<Table> tables;
 
-    public Room(String id, int numberOfTable, boolean available) {
+    public Room(String id, List<Table> tablesList, boolean available) {
         this.id = id;
-        this.numberOfTable = numberOfTable;
+        this.numberOfTable = tablesList.size();
+        this.tables = tablesList;
         // true if the room is available, false if not (can be false if the room is reserved or closed)
         this.available = available;
     }
@@ -18,6 +20,7 @@ public class Room {
     // ------------------ //
     // GETTERS
     // ------------------ //
+
     public String getId() {
         return id;
     }
@@ -31,6 +34,7 @@ public class Room {
     // ------------------ //
     // SETTERS
     // ------------------ //
+
     public void setId(String id) {
         this.id = id;
     }
@@ -44,22 +48,48 @@ public class Room {
     public void changeAvailability() {
         this.available = !this.available;
     }
+
+    // ------------------ //
+    // METHODS
+    // ------------------ //
     // to display the different information about the table
     public String toString() {
         return "Room " + this.id + " with " + this.numberOfTable + " tables is " + (this.available ? "available" : "not available");
     }
 
+    // to add a table to the room
     public void addTable(int idTable, int idRoom, int places) {
         Table table = new Table(idTable, idRoom, places);
         tables.add(table);
     }
 
+    // to remove a table from the room
     public void removeTable(int numberOfTable) {
         for (Table table : tables) {
             if (table.getIdTable() == numberOfTable) {
                 tables.remove(table);
             }
         }
+    }
+
+    // to add an order to a table
+    public void addOrder(int numberOfTable, Order order) {
+        for (Table table : tables) {
+            if (table.getIdTable() == numberOfTable) {
+                table.addOrder(order);
+            }
+        }
+    }
+
+    // to remove an order from a table and send it to the accounting
+    public Order removeOrder(int numberOfTable) {
+        Order OrderPaid = null;
+        Stream<Table> tableStream = tables.stream();
+        Table table = tableStream.filter(reservedTable -> reservedTable.getIdTable() == numberOfTable).findFirst().orElse(null);
+        if (table != null) {
+            OrderPaid = table.tranfertOrder();
+        }
+        return OrderPaid;
     }
 
 
