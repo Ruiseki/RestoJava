@@ -31,11 +31,13 @@ public class OrderController implements Initializable {
     public void deleteOrder(Order order, List<Order> listOrder) {
         List<Order> savedListOrder = listOrder.stream().filter(e -> e != order).collect(Collectors.toList());
     }
-
     public void createOrder() {
+        /*
         int totalNetPrice = addedDishList.stream().reduce(0, (result, e) -> result + e.getNetPrice(), Integer::sum);
         int totalRawPrice = addedDishList.stream().reduce(0, (result, e) -> result + e.getRawPrice(), Integer::sum);
         Order order = new Order(addedDishList, textfieldName.getText(), "pending", totalNetPrice, totalRawPrice);
+        */
+
     }
 
     public void createDishList() {
@@ -52,16 +54,19 @@ public class OrderController implements Initializable {
         order.setStatus("prepared");
     }
 
+
     public String addDishToList() {
-        Dish savedDish = list.stream().filter(e -> e.equals(comboBoxDish.getValue())).collect(Collectors.toList());
-        addedDishList.add(savedDish);
+        // Dish savedDish = list.stream().filter(e -> e.equals(comboBoxDish.getValue())).collect(Collectors.toList());
+        // addedDishList.add(savedDish);
+        return comboBoxDish.getValue();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         buttonCreateOrder.setOnAction((e) -> createDishList());
 
-        addDishButton.setOnAction((e) -> addDishToList());
+        // addDishButton.setOnAction((e) -> addDishToList());
 
     }
+
 }
