@@ -25,7 +25,7 @@ public class Money {
         // PDF here
     }
 
-    public static void addOrder(Order order)
+/*     public static void addOrder(Order order)
     {
         ArrayList<Dish> orderDishes = order.getDishes(); // -- ? --
         orderDishes.stream()
@@ -40,5 +40,5 @@ public class Money {
     {
         stock.stream()
              .forEach(element -> expense += element.getRawPrice()); // -- ? --
-    }
+    } */
 }
