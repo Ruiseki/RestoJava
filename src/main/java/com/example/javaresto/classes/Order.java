@@ -1,6 +1,8 @@
 package com.example.javaresto.classes;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,10 @@ public class Order {
         return rawPrice;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Order(List<Dish> dishes, String customer, String status, int netPrice, int rawPrice) {
         this.dishes = dishes;
         this.customer = customer;
@@ -41,13 +47,5 @@ public class Order {
         this.rawPrice = rawPrice;
     }
 
-    public void CreateListOrder() {
 
-
-        
-        /*List<Label> labels = list
-             .stream()
-             .map( Label::new )
-             .collect(Collectors.toList());*/
-    }
 }

@@ -32,10 +32,12 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -45,14 +47,17 @@
       <menus>
         <Menu mnemonicParsing="false" text="Order">
           <items>
-            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem fx:id="buttonCreateOrder" mnemonicParsing="false" text="New" />
           </items>
         </Menu>
       </menus>
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ListView fx:id="listViewOrder" fixedCellSize="0.0" layoutX="196.0" />
+            <ComboBox fx:id="comboBoxDish" layoutX="22.0" layoutY="13.0" prefWidth="150.0" promptText="Select a dish" />
+            <Button fx:id="addDishButton" layoutX="180.0" layoutY="13.0" mnemonicParsing="false" text="Add" />
+            <Button fx:id="createOrderButton" layoutX="386.0" layoutY="13.0" mnemonicParsing="false" text="Create an order" />
+            <TextField fx:id="textfieldName" layoutX="228.0" layoutY="13.0" />
          </children>
     </AnchorPane>
   </children>
