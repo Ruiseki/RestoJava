@@ -1,17 +1,24 @@
 package com.example.javaresto.classes;
 
+import java.util.List;
+
 public class Room {
-    private int id;
+    private String id;
     private int numberOfTable;
     private boolean available;
+    private List<Table> tables;
 
-    public Room(int id, int numberOfTable, boolean available) {
+    public Room(String id, int numberOfTable, boolean available) {
         this.id = id;
         this.numberOfTable = numberOfTable;
+        // true if the room is available, false if not (can be false if the room is reserved or closed)
         this.available = available;
     }
 
-    public int getId() {
+    // ------------------ //
+    // GETTERS
+    // ------------------ //
+    public String getId() {
         return id;
     }
     public int getNumberOfTable() {
@@ -20,7 +27,11 @@ public class Room {
     public boolean isAvailable() {
         return available;
     }
-    public void setId(int id) {
+
+    // ------------------ //
+    // SETTERS
+    // ------------------ //
+    public void setId(String id) {
         this.id = id;
     }
     public void setNumberOfTable(int numberOfTable) {
@@ -37,4 +48,19 @@ public class Room {
     public String toString() {
         return "Room " + this.id + " with " + this.numberOfTable + " tables is " + (this.available ? "available" : "not available");
     }
+
+    public void addTable(int idTable, int idRoom, int places) {
+        Table table = new Table(idTable, idRoom, places);
+        tables.add(table);
+    }
+
+    public void removeTable(int numberOfTable) {
+        for (Table table : tables) {
+            if (table.getIdTable() == numberOfTable) {
+                tables.remove(table);
+            }
+        }
+    }
+
+
 }

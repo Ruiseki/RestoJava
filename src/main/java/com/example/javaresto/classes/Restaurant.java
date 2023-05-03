@@ -11,6 +11,9 @@ public class Restaurant {
         this.description = description;
     }
 
+    // ------------------ //
+    // GETTERS
+    // ------------------ //
     public String getName() {
         return name;
     }
@@ -21,6 +24,9 @@ public class Restaurant {
         return description;
     }
 
+    // ------------------ //
+    // SETTERS
+    // ------------------ //
     public void setName(String name) {
         this.name = name;
     }
@@ -30,6 +36,10 @@ public class Restaurant {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    // ------------------ //
+    // METHODS
+    // ------------------ //
     // to display the different information about the restaurant
     public String toString() {
         return "Restaurant " + this.name + " is located at " + this.address + ". " + this.description;
