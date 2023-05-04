@@ -12,8 +12,8 @@ public class Order {
     private List<Dish> dishes;
     private String customer;
     private String status;
-    private int netPrice;
-    private int rawPrice;
+    private Double netPrice;
+    private Double rawPrice;
 
     public List<Dish> getDishes() {
         return dishes;
@@ -27,11 +27,11 @@ public class Order {
         return status;
     }
 
-    public int getNetPrice() {
+    public Double getNetPrice() {
         return netPrice;
     }
 
-    public int getRawPrice() {
+    public Double getRawPrice() {
         return rawPrice;
     }
 
@@ -39,7 +39,7 @@ public class Order {
         this.status = status;
     }
 
-    public Order(List<Dish> dishes, String customer, String status, int netPrice, int rawPrice) {
+    public Order(List<Dish> dishes, String customer, String status, Double netPrice, Double rawPrice) {
         this.dishes = dishes;
         this.customer = customer;
         this.status = status;
