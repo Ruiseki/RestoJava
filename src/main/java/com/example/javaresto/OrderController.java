@@ -33,8 +33,8 @@ public class OrderController implements Initializable {
     }
 
     public void createOrder() {
-        int totalNetPrice = addedDishList.stream().reduce(0, (result, dish) -> result + dish.getNetPrice(), Integer::sum);
-        int totalRawPrice = addedDishList.stream().reduce(0, (result, dish) -> result + dish.getGrossPrice(), Integer::sum);
+        Double totalNetPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getNetPrice(), Double::sum);
+        Double totalRawPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getGrossPrice(), Double::sum);
         Order order = new Order(addedDishList, textfieldName.getText(), "pending", totalNetPrice, totalRawPrice);
     }
 
