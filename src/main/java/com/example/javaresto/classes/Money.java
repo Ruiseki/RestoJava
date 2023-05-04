@@ -25,20 +25,19 @@ public class Money {
         // PDF here
     }
 
-/*     public static void addOrder(Order order)
+    public static void addOrder(Order order)
     {
-        ArrayList<Dish> orderDishes = order.getDishes(); // -- ? --
+        ArrayList<Dish> orderDishes = order.getDishes();
         orderDishes.stream()
                    .forEach(element -> {
                         dishes.add(element);
-                        gain += element.getPrice(); // -- ? --
+                        gain += element.getNetPrice();
                     });
-
     }
 
     public static void setProductionPrice(ArrayList<Dish> stock)
     {
         stock.stream()
-             .forEach(element -> expense += element.getRawPrice()); // -- ? --
-    } */
+             .forEach(element -> expense += element.getGrossPrice());
+    }
 }

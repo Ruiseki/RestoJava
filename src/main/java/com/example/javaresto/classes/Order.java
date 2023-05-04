@@ -1,21 +1,16 @@
 package com.example.javaresto.classes;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 public class Order {
-    private List<Dish> dishes;
+    private ArrayList<Dish> dishes;
     private String customer;
     private String status;
     private Double netPrice;
     private Double rawPrice;
 
-    public List<Dish> getDishes() {
+    public ArrayList<Dish> getDishes() {
         return dishes;
     }
 
@@ -39,7 +34,7 @@ public class Order {
         this.status = status;
     }
 
-    public Order(List<Dish> dishes, String customer, String status, Double netPrice, Double rawPrice) {
+    public Order(ArrayList<Dish> dishes, String customer, String status, Double netPrice, Double rawPrice) {
         this.dishes = dishes;
         this.customer = customer;
         this.status = status;

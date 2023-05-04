@@ -1,11 +1,10 @@
 package com.example.javaresto.classes;
 
-
-import com.example.javaresto.classes.Ingredient;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Dish extends Ingredient {
 
@@ -13,19 +12,16 @@ public class Dish extends Ingredient {
     private String description;
     private double netPrice;
     private double grossPrice;
-    private List<Dish> dishList;
     private Image image;
+    private static List<Dish> dishList = new ArrayList<>();
 
-    public Dish(String name, String description, double netPrice, double grossPrice, List<Dish> dishList, Image image){
+    public Dish(String name, String description, double netPrice, double grossPrice, Image image) {
         super(name, grossPrice);
-
         this.name = name;
         this.description = description;
         this.netPrice = netPrice;
         this.grossPrice = grossPrice;
-        this.dishList = dishList;
         this.image = image;
-
     }
 
     public String getName() {
@@ -44,28 +40,44 @@ public class Dish extends Ingredient {
         return grossPrice;
     }
 
-    public List<Dish> getDishList() {
-        return dishList;
-    }
-
-    public void setDishList(List<Dish> dishList) {
-        this.dishList = dishList;
-    }
-
     public Image getImage() {
         return image;
     }
 
-    @Override
-    public String toString() {
-        return name;
+    public static Dish createDish(String name, String description, double netPrice, double grossPrice, Image image) {
+        Dish dish = new Dish(name, description, netPrice, grossPrice, image);
+        dishList.add(dish);
+        return dish;
     }
 
-    /*public static Dish createDish(String name, String description, double netPrice, double grossPrice, Image image) {
-        List<Dish> dishList = new ArrayList<>();
-        dishList.add(new Dish(name, description, netPrice, grossPrice, image));
-        return new Dish(name, description, netPrice, grossPrice, image);
-    }*/
+    public static void addDish(Dish dish) {
+        dishList.add(dish);
+    }
 
+    public static void displayMenu() {
+        System.out.println("Menu :");
+        dishList.stream()
+                .map(dish -> "- " + dish.getName() + " (" + dish.getNetPrice() + "$)")
+                // Removing duplicates
+                .distinct()
+                .forEach(System.out::println);
+    }
 
+    public static void displayDishDetails(String dishName) {
+
+        // Search for the entered dish if it matches the one in my list
+        Optional<Dish> optionalDish = dishList.stream()
+                .filter(dish -> dish.getName().equalsIgnoreCase(dishName))
+                .findFirst();
+
+        // If it exists in the list
+        if (optionalDish.isPresent()) {
+            Dish dish = optionalDish.get();
+            System.out.println(dish.getName() + ": " + dish.getDescription());
+            System.out.println("Net Price: " + dish.getNetPrice() + "$");
+            System.out.println("Gross price: " + dish.getGrossPrice() + "$");
+        } else {
+            System.out.println("The dish '" + dishName + "' does not exist in the menu.");
+        }
+    }
 }
