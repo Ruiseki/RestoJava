@@ -44,6 +44,7 @@ public class Dish extends Ingredient {
         return image;
     }
 
+
     public static Dish createDish(String name, String description, double netPrice, double grossPrice, Image image) {
         Dish dish = new Dish(name, description, netPrice, grossPrice, image);
         return dish;
@@ -79,4 +80,11 @@ public class Dish extends Ingredient {
             System.out.println("The dish '" + dishName + "' does not exist in the menu.");
         }
     }
+
+    public static double calculateNetPrice(double grossPrice) {
+        double netPrice = grossPrice * 1.1;
+        return Math.round(netPrice * 100.0) / 100.0;
+    }
+
+
 }
