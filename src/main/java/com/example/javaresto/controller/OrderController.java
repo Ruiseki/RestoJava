@@ -1,5 +1,6 @@
 package com.example.javaresto.controller;
 
+import com.example.javaresto.classes.Ingredient;
 import com.example.javaresto.classes.Order;
 import com.example.javaresto.classes.Dish;
 import javafx.fxml.FXML;
@@ -17,8 +18,6 @@ public class OrderController implements Initializable {
     @FXML
     private ListView listViewOrder;
     @FXML
-    private MenuItem buttonCreateOrder;
-    @FXML
     private ComboBox<String> comboBoxDish;
     @FXML
     private Button addDishButton;
@@ -27,7 +26,8 @@ public class OrderController implements Initializable {
     @FXML
     private TextField textfieldName;
     public List<Dish> addedDishList;
-    public List<Dish> list = new ArrayList();
+    public List<Dish> list = new ArrayList<>();
+    public List<Ingredient> ingredientList = new ArrayList<>();
     public List<Order> listOrder;
 
     /**
@@ -49,16 +49,6 @@ public class OrderController implements Initializable {
         Double totalRawPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getGrossPrice(), Double::sum);
         Order order = new Order(addedDishList, textfieldName.getText(), "pending", totalNetPrice, totalRawPrice);
         listOrder.add(order);
-    }
-
-    /**
-     * display the dishList in the comboBox
-     */
-
-    public void displayDishList() {
-        list.add(0, null);
-
-        comboBoxDish.getItems().addAll(list);
     }
 
     /**
@@ -99,9 +89,9 @@ public class OrderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        buttonCreateOrder.setOnAction((e) -> displayDishList());
+        list.add(0, null);
 
+        comboBoxDish.getItems().addAll(list);
         addDishButton.setOnAction((e) -> addDishToList());
-
     }
 }
