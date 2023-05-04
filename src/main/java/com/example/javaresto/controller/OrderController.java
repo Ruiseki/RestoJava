@@ -25,10 +25,10 @@ public class OrderController implements Initializable {
     private Button createOrderButton;
     @FXML
     private TextField textfieldName;
-    public List<Dish> addedDishList = new ArrayList<>();
-    public List<Dish> list = new ArrayList<>();
-    public List<Ingredient> ingredientList = new ArrayList<>();
-    public List<Order> listOrder = new ArrayList<>();
+    public ArrayList<Dish> addedDishList = new ArrayList<>();
+    public ArrayList<Dish> list = new ArrayList<>();
+    public ArrayList<Ingredient> ingredientList = new ArrayList<>();
+    public ArrayList<Order> listOrder = new ArrayList<>();
 
     /**
      * Delete the order in the listOrder
@@ -36,7 +36,7 @@ public class OrderController implements Initializable {
      * @param listOrder
      */
 
-    public void deleteOrder(Order order, List<Order> listOrder) {
+    public void deleteOrder(Order order, ArrayList<Order> listOrder) {
         List<Order> savedListOrder = listOrder.stream().filter(currentOrder -> currentOrder != order).collect(Collectors.toList());
     }
 
