@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="add templates for MainPageController (mainly Restaurant stuff)">
+    <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="add templates for RestaurantCreation, rooms, Table creation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Restaurant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/restaurant-creation-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/restaurant-creation-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +68,7 @@
       <workItem from="1683110166224" duration="8693000" />
       <workItem from="1683156337827" duration="459000" />
       <workItem from="1683156811956" duration="1120000" />
-      <workItem from="1683189564802" duration="12464000" />
+      <workItem from="1683189564802" duration="12788000" />
     </task>
     <task id="LOCAL-00001" summary="creation of classes and Restaurant spaces (first commit)">
       <created>1683118823477</created>
@@ -103,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683201303885</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add templates for RestaurantCreation, rooms, Table creation">
+      <created>1683212108165</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683212108165</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +128,7 @@
     <MESSAGE value="merge with Dev" />
     <MESSAGE value="fix bugs using comments onto Table branch" />
     <MESSAGE value="add templates for MainPageController (mainly Restaurant stuff)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add templates for MainPageController (mainly Restaurant stuff)" />
+    <MESSAGE value="add templates for RestaurantCreation, rooms, Table creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add templates for RestaurantCreation, rooms, Table creation" />
   </component>
 </project>

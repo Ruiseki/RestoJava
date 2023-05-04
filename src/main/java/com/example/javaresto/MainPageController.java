@@ -101,22 +101,24 @@ public class MainPageController {
 
         Myrestaurant.getRooms().stream().forEach(
                 (room) -> {
-                    int roomTablesQuantityAvalaible =  room.getNumberOfTableAvailable();
+                    int roomTablesQuantityAvailable =  room.getNumberOfTableAvailable();
                     if (room.getName().equals("Terrace")) {
                         displayRoomNameLabel1.setText(room.getName());
-                        displayRoomNumTablesLabel1.setText(String.valueOf(roomTablesQuantityAvalaible));
+                        displayRoomNumTablesLabel1.setText(String.valueOf(roomTablesQuantityAvailable));
                     } else {
                         displayRoomNameLabel2.setText(room.getName());
-                        displayRoomNumTablesLabel2.setText(String.valueOf(roomTablesQuantityAvalaible));
+                        displayRoomNumTablesLabel2.setText(String.valueOf(roomTablesQuantityAvailable));
                     }
                     // For each rooms display the number of Tables avalaible or not
+                    int quantityOfTable1 = 0;
+                    int quantityOfTable2 = 0;
                     if (room.getName().equals("Terrace")) {
-                        int quantityOfTable = room.getTables().size();
-                        displayEmptyTablesLabel1.setText("" + quantityOfTable);
+                        quantityOfTable1++;
                     } else {
-                        int quantityOfTable = room.getTables().size();
-                        displayEmptyTablesLabel2.setText("" + quantityOfTable);
+                        quantityOfTable2++;
                     }
+                    displayEmptyTablesLabel1.setText("" + quantityOfTable1);
+                    displayEmptyTablesLabel2.setText("" + quantityOfTable2);
                 }
         );
     }
