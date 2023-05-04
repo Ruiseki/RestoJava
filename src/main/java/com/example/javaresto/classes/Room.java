@@ -1,16 +1,21 @@
 package com.example.javaresto.classes;
 
+import javafx.beans.binding.Bindings;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
 public class Room {
-    private String id;
+    private int id;
+    private String name;
     private int numberOfTable;
     private boolean available;
     private List<Table> tables;
 
-    public Room(String id, List<Table> tablesList, boolean available) {
+    public Room(int id, String name ,List<Table> tablesList, boolean available) {
         this.id = id;
+        this.name = name;
         this.numberOfTable = tablesList.size();
         this.tables = tablesList;
         // true if the room is available, false if not (can be false if the room is reserved or closed)
@@ -21,8 +26,11 @@ public class Room {
     // GETTERS
     // ------------------ //
 
-    public String getId() {
+    public int getId() {
         return id;
+    }
+    public String getName() {
+        return name;
     }
     public int getNumberOfTable() {
         return numberOfTable;
@@ -30,19 +38,28 @@ public class Room {
     public boolean isAvailable() {
         return available;
     }
+    public List<Table> getTables() {
+        return tables;
+    }
 
     // ------------------ //
     // SETTERS
     // ------------------ //
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
     public void setNumberOfTable(int numberOfTable) {
         this.numberOfTable = numberOfTable;
     }
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+    public void setTables(ArrayList<Table> tables) {
+        this.tables = tables;
     }
     // options for the user to change the availability of the table
     public void changeAvailability() {
@@ -92,5 +109,15 @@ public class Room {
         return OrderPaid;
     }
 
+    public ArrayList<Table> getTables(Room room) {
+        return (ArrayList<Table>) room.tables;
+    }
 
+    public int getNumberOfTableAvailable() {
+        int numberOfTableAvailable = 0;
+        List<Table> tables = this.getTables();
+        Stream<Table> tableStream = tables.stream();
+        numberOfTableAvailable = (int) tableStream.filter(table -> table.getIsAvailable()).count();
+        return numberOfTableAvailable;
+    }
 }

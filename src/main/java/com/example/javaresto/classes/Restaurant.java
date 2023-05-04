@@ -13,7 +13,13 @@ public class Restaurant {
         this.name = name;
         this.address = address;
         this.description = description;
-        this.rooms = new ArrayList<Room>();
+        // By default, we create 2 rooms
+        ArrayList<Room> places = new ArrayList<Room>();
+        Room terrace = new Room(1,"Terrace", new ArrayList<Table>(), true);
+        places.add(terrace);
+        Room Mainroom = new Room(2,"MainRoom", new ArrayList<Table>(), true);
+        places.add(Mainroom);
+        this.rooms = places;
     }
 
     // ------------------ //
@@ -55,8 +61,8 @@ public class Restaurant {
     // ROOMS
     //-------------------//
     // create a new room
-    public void createRoom(String id, List<Table> tablesList, boolean available) {
-        Room room = new Room(id, tablesList, available);
+    public void createRoom(int id, String name, List<Table> tablesList, boolean available) {
+        Room room = new Room(id,name, tablesList, available);
         this.rooms.add(room);
     }
     // to add a room to the restaurant

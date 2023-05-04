@@ -18,9 +18,11 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    public static void main(String[] args) {
-        launch();
-        Chrono chrono = new Chrono();
-        chrono.start(0, false);
-    }
+        /*
+        public static void main(String[] args) {
+            launch();
+            Chrono chrono = new Chrono();
+            chrono.start(0, false);
+        }
+         */
 }

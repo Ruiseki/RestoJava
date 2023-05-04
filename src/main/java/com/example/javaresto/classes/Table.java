@@ -66,4 +66,10 @@ public class Table {
         this.places = places;
     }
 
+    public boolean getIsAvailable() {
+        if (this.order == null) {
+            return true;
+        }
+        return false;
+    }
 }
