@@ -60,4 +60,16 @@ public class Table {
         this.order = null;
         return order;
     }
+
+    // to change the number of places of the table
+    public void changePlaces(int places) {
+        this.places = places;
+    }
+
+    public boolean getIsAvailable() {
+        if (this.order == null) {
+            return true;
+        }
+        return false;
+    }
 }
