@@ -4,11 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="" />
+    <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Dish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Ingredient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/controller/IngredientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/controller/IngredientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/order-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/order-view.fxml" afterDir="false" />
+    </list>
+    <list id="7b57b5c2-2478-451b-b95b-45cc9c11438c" name="Changes by Utilisateur" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,7 +51,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "mathias",
+    "last_opened_file_path": "/Users/smajicmathias/Desktop/JavaResto",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -36,8 +71,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683098832168</updated>
+      <workItem from="1683116590256" duration="7670000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
