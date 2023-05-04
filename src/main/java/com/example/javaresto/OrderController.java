@@ -29,12 +29,12 @@ public class OrderController implements Initializable {
     public List list = new ArrayList();
 
     public void deleteOrder(Order order, List<Order> listOrder) {
-        List<Order> savedListOrder = listOrder.stream().filter(e -> e != order).collect(Collectors.toList());
+        List<Order> savedListOrder = listOrder.stream().filter(currentOrder -> currentOrder != order).collect(Collectors.toList());
     }
 
     public void createOrder() {
-        int totalNetPrice = addedDishList.stream().reduce(0, (result, e) -> result + e.getNetPrice(), Integer::sum);
-        int totalRawPrice = addedDishList.stream().reduce(0, (result, e) -> result + e.getRawPrice(), Integer::sum);
+        int totalNetPrice = addedDishList.stream().reduce(0, (result, dish) -> result + dish.getNetPrice(), Integer::sum);
+        int totalRawPrice = addedDishList.stream().reduce(0, (result, dish) -> result + dish.getRawPrice(), Integer::sum);
         Order order = new Order(addedDishList, textfieldName.getText(), "pending", totalNetPrice, totalRawPrice);
     }
 
@@ -52,8 +52,8 @@ public class OrderController implements Initializable {
         order.setStatus("prepared");
     }
 
-    public String addDishToList() {
-        Dish savedDish = list.stream().filter(e -> e.equals(comboBoxDish.getValue())).collect(Collectors.toList());
+    public void addDishToList() {
+        Dish savedDish = (Dish) list.stream().filter(dishName -> dishName.equals(comboBoxDish.getValue())).collect(Collectors.toList());
         addedDishList.add(savedDish);
     }
 
