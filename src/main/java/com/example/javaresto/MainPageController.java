@@ -1,23 +1,19 @@
 package com.example.javaresto;
 
-import com.example.javaresto.classes.Restaurant;
-import com.example.javaresto.classes.Room;
-import com.example.javaresto.classes.Table;
+import com.example.javaresto.classes.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class MainPageController {
+public class MainPageController implements Initializable{
 
     @FXML
     private ComboBox<String> MyrestaurantRoomsComboBox;
@@ -63,6 +59,25 @@ public class MainPageController {
 
     @FXML
     private Label displayRoomNumTablesLabel2;
+
+    @FXML
+    private ListView listViewOrder;
+
+    @FXML
+    private ComboBox<String> comboBoxDish;
+
+    @FXML
+    private Button addDishButton;
+
+    @FXML
+    private Button createOrderButton;
+
+    @FXML
+    private TextField textfieldName;
+    public ArrayList<Dish> addedDishList = new ArrayList<>();
+    public ArrayList<Dish> list = new ArrayList<>();
+    public ArrayList<Ingredient> ingredientList = new ArrayList<>();
+    public ArrayList<Order> listOrder = new ArrayList<>();
 
     public Restaurant Myrestaurant;
     @FXML
@@ -131,4 +146,91 @@ public class MainPageController {
         Table newTable = new Table(idNewTable, NumberPlacesNewTable, locationRoomNewTable);
         cibledroom.getTables().add(newTable);
     }
+
+    /** ----------------------------------------------------------------------------------------------------------------
+     * Order part
+     */
+
+    /**
+     * Delete the order in the listOrder
+     * @param order
+     * @param listOrder
+     */
+
+    public void deleteOrder(Order order, ArrayList<Order> listOrder) {
+        List<Order> savedListOrder = listOrder.stream().filter(currentOrder -> currentOrder != order).collect(Collectors.toList());
+    }
+
+    /**
+     * Create the order calculating the net price and the raw price
+     */
+
+    public void createOrder() {
+        Double totalNetPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getNetPrice(), Double::sum);
+        Double totalRawPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getGrossPrice(), Double::sum);
+        Order order = new Order(addedDishList, textfieldName.getText(), "pending", totalNetPrice, totalRawPrice);
+        listOrder.add(order);
+        System.out.println(listOrder.get(0).getDishes() + " " + listOrder.get(0).getStatus() + " " + listOrder.get(0).getCustomer() + " " + listOrder.get(0).getNetPrice() + " " + listOrder.get(0).getRawPrice());
+    }
+
+    /**
+     * Put the status of the order to "prepared"
+     * @param order
+     */
+
+    public void prepareOrder(Order order) {
+        order.setStatus("prepared");
+    }
+
+    /**
+     * Add a dish to the list
+     */
+
+    public void addDishToList() {
+        List<Dish> objectDish = list.stream().filter(dishName -> dishName.getName().equals(comboBoxDish.getValue())).collect(Collectors.toList());
+        Dish savedDish = objectDish.get(0);
+        addedDishList.add(savedDish);
+        System.out.println("List of dish updated");
+    }
+
+    /**
+     * Put every order in the listView
+     */
+
+    public void displayListOrder() {
+        listViewOrder.getItems().clear();
+        listOrder.stream().forEach(order -> addToListview(order));
+    }
+
+    /**
+     * Write the string using some order values and put it in the listView
+     * @param order
+     */
+
+    public void addToListview(Order order) {
+        System.out.println(order);
+        System.out.println(listViewOrder.getItems());
+        listViewOrder.getItems().add("Customer name : " + order.getCustomer() + " Status : " + order.getStatus());
+    }
+
+    /** ----------------------------------------------------------------------------------------------------------------
+     * Initialize
+     */
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        list.add(Dish.createDish("Pizza margherita", "Tomato, mozzarella, basilic", 9.00, 11.00, null));
+        list.add(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", 8.50, 10.00, null));
+        list.add(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00, null));
+
+        list.stream().forEach(dish -> comboBoxDish.getItems().add(dish.getName()));
+        ;
+        addDishButton.setOnAction((e) -> addDishToList());
+
+        createOrderButton.setOnAction((e) -> {
+            createOrder();
+            displayListOrder();
+        });
+    }
+
 }
