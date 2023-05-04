@@ -28,6 +28,17 @@ public class HelloApplication extends Application {
         Image saladImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/saladCesar.jpg");
         Image pastaImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/pastaBolo.jpg");*/
 
+        Ingredient.addIngredient(Ingredient.createIngredient("Pasta", 2.00));
+        Ingredient.addIngredient(Ingredient.createIngredient("Sauce bolognese", 5.00));
+        Ingredient.addIngredient(Ingredient.createIngredient("Tomato", 1.00));
+        Ingredient.addIngredient(Ingredient.createIngredient("Mozzarella", 1.00));
+        Ingredient.addIngredient(Ingredient.createIngredient("Basilic", 1.00));
+        Ingredient.addIngredient(Ingredient.createIngredient("Green Salad", 2.00));
+        Ingredient.addIngredient(Ingredient.createIngredient("Chicken", 10.00));
+        Ingredient.addIngredient(Ingredient.createIngredient("Parmesan", 4.00));
+        Ingredient.addIngredient(Ingredient.createIngredient("Crouton", 2.00));
+
+
         Dish.addDish(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", 8.50, 10.00, null));
         Dish.addDish(Dish.createDish("Pizza margherita", "Tomate, mozzarella, basilic", 9.00, 11.00, null));
         Dish.addDish(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00, null));
@@ -37,6 +48,8 @@ public class HelloApplication extends Application {
 
         // Afficher les détails d'un plat spécifique
         Dish.displayDishDetails("Caesar salad");
+
+        Ingredient.displayIngredient();
 
         launch();
     }

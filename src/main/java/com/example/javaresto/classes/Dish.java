@@ -46,7 +46,6 @@ public class Dish extends Ingredient {
 
     public static Dish createDish(String name, String description, double netPrice, double grossPrice, Image image) {
         Dish dish = new Dish(name, description, netPrice, grossPrice, image);
-        dishList.add(dish);
         return dish;
     }
 
