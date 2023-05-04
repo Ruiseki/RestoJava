@@ -19,8 +19,14 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
         Chrono chrono = new Chrono();
-        chrono.start(0, false);
+
+        // use this to sync the chrono
+        // chrono.startSync(15000, false);
+        
+        // use this one to allow background operation
+        chrono.startThreaded(15000, false);
+
+        launch();
     }
 }

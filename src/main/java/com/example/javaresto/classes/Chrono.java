@@ -3,15 +3,18 @@ package com.example.javaresto.classes;
 public class Chrono
 {
     private long value = 0, referenceTime;
-    private boolean pause = false, forceEnd = false;
+    private boolean pause = false, forceEnd = false, threadMode;
+    private Thread task;
 
     public Chrono() {}
     
-    public void start(long wallOfTheEnd, boolean reverse)
+    public void startSync(long wallOfTheEnd, boolean reverse)
     {
+        threadMode = false;
         boolean end = false;
         value = reverse ? wallOfTheEnd : 0;
         referenceTime = System.currentTimeMillis();
+        String oldTime = "00:00";
 
         do
         {
@@ -24,23 +27,55 @@ public class Chrono
             }
 
             referenceTime = System.currentTimeMillis();
-
-            System.out.println(getTimeMinSec());
+            if (displayTimeEachSecond(oldTime));
+                oldTime = getTimeMinSec();
 
             end =   forceEnd ? true :
                     wallOfTheEnd == 0 ? false :
                     (!reverse && value >= wallOfTheEnd) || (reverse && value <= wallOfTheEnd) ? true : false;
 
         } while (!end);
+        System.out.println("Time limit reached");
     }
-
-    public void start()
+    
+    public void startSync()
     {
-        start(0, false);
+        startSync(0, false);
     }
 
-    public void pause() { pause = true; }
-    public void resume() { pause = false; }
+    public void startThreaded(long wallOfTheEnd, boolean reverse)
+    {
+        threadMode = true;
+        task = new Thread(() -> startSync(wallOfTheEnd, reverse));
+        task.start();
+    }
+
+    public void startThreaded()
+    {
+        startThreaded(0, false);
+    }
+    
+    private boolean displayTimeEachSecond(String oldTime)
+    {
+        String time = getTimeMinSec();
+
+        if (!time.equals(oldTime))
+            System.out.println(time);
+        else return false;
+
+        return true;
+    }
+
+    public void pause()
+    {
+        if(threadMode) return;
+        pause = true;
+    }
+    public void resume()
+    {
+        if(threadMode) return;
+        pause = false;
+    }
 
     public void stop()
     {
