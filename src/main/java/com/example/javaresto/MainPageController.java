@@ -19,6 +19,12 @@ public class MainPageController implements Initializable{
     private ComboBox<String> MyrestaurantRoomsComboBox;
 
     @FXML
+    private ComboBox<String> MyrestaurantRoom1ComboBox;
+
+    @FXML
+    private ComboBox<String> MyrestaurantRoom2ComboBox;
+
+    @FXML
     private TextField TablesPlacesNumberTextfield;
 
     @FXML
@@ -87,7 +93,7 @@ public class MainPageController implements Initializable{
         String address = createRAddressTextfield.getText();
 
         ArrayList<Table> tables = new ArrayList<Table>();
-        Table table1 = new Table(1, 4, 2);
+        Table table1 = new Table(1, 4, 0);
         tables.add(table1);
         Table table2 = new Table(2, 4, 1);
         tables.add(table2);
@@ -97,11 +103,31 @@ public class MainPageController implements Initializable{
         tables.add(table4);
         Table table5 = new Table(5, 4, 1);
         tables.add(table5);
-        Table table6 = new Table(6, 8, 2);
+        Table table6 = new Table(6, 8, 0);
         tables.add(table6);
+        Table table7 = new Table(7, 4, 1);
+        tables.add(table7);
+        Table table8 = new Table(8, 4, 0);
+        tables.add(table8);
+
+        ArrayList<Table> listTableRoom1 = new ArrayList<>();
+
+        ArrayList<Table> listTableRoom2 = new ArrayList<>();
+
+        tables.stream().forEach( table ->
+                {
+                    if(table.getIdRoom() == 0){
+                        listTableRoom1.add(table);
+                    }
+                    else {
+                        listTableRoom2.add(table);
+                    }
+                }
+            );
 
         Myrestaurant = new Restaurant(name, address, description);
-        Myrestaurant.getRooms().get(0).setTables(tables);
+        Myrestaurant.getRooms().get(0).setTables(listTableRoom1);
+        Myrestaurant.getRooms().get(1).setTables(listTableRoom2);
         List restaurantRoomStream = Myrestaurant.getRooms().stream().map(Room::getName).toList();
         MyrestaurantRoomsComboBox.getItems().clear();
         MyrestaurantRoomsComboBox.getItems().addAll(restaurantRoomStream);
@@ -113,29 +139,26 @@ public class MainPageController implements Initializable{
         displayRDescriptionLabel.setText(Myrestaurant.getDescription());
         displayRAddressLabel.setText(Myrestaurant.getAddress());
 
+        // set the name of the room to there labels
+        displayRoomNameLabel1.setText(Myrestaurant.getRooms().get(0).getName());
+        displayRoomNameLabel2.setText(Myrestaurant.getRooms().get(1).getName());
 
-        Myrestaurant.getRooms().stream().forEach(
-                (room) -> {
-                    int roomTablesQuantityAvailable =  room.getNumberOfTableAvailable();
-                    if (room.getName().equals("Terrace")) {
-                        displayRoomNameLabel1.setText(room.getName());
-                        displayRoomNumTablesLabel1.setText(String.valueOf(roomTablesQuantityAvailable));
-                    } else {
-                        displayRoomNameLabel2.setText(room.getName());
-                        displayRoomNumTablesLabel2.setText(String.valueOf(roomTablesQuantityAvailable));
-                    }
-                    // For each rooms display the number of Tables avalaible or not
-                    int quantityOfTable1 = 0;
-                    int quantityOfTable2 = 0;
-                    if (room.getName().equals("Terrace")) {
-                        quantityOfTable1++;
-                    } else {
-                        quantityOfTable2++;
-                    }
-                    displayEmptyTablesLabel1.setText("" + quantityOfTable1);
-                    displayEmptyTablesLabel2.setText("" + quantityOfTable2);
-                }
-        );
+        // set the number of tables to there labels
+        displayRoomNumTablesLabel1.setText(String.valueOf(Myrestaurant.getRooms().get(0).getTables().size()));
+        displayRoomNumTablesLabel2.setText(String.valueOf(Myrestaurant.getRooms().get(1).getTables().size()));
+
+        // set the number of empty tables to there labels
+        displayEmptyTablesLabel1.setText(String.valueOf(Myrestaurant.getRooms().get(0).getNumberOfTableAvailable()));
+        displayEmptyTablesLabel2.setText(String.valueOf(Myrestaurant.getRooms().get(1).getNumberOfTableAvailable()));
+
+        // set the empty tables to the ComboxBox
+        MyrestaurantRoom1ComboBox.getItems().clear();
+        MyrestaurantRoom1ComboBox.getItems().addAll(Myrestaurant.getRooms().get(0).getTables().stream().filter(table -> table.getIsAvailable()).map(Table::getIdTable).map(String::valueOf).toList());
+
+        MyrestaurantRoom2ComboBox.getItems().clear();
+        MyrestaurantRoom2ComboBox.getItems().addAll(Myrestaurant.getRooms().get(1).getTables().stream().filter(table -> table.getIsAvailable()).map(Table::getIdTable).map(String::valueOf).toList());
+
+
     }
     @FXML
     void btnTableCreateClicked(ActionEvent event) {

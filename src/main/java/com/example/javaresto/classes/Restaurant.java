@@ -14,10 +14,10 @@ public class Restaurant {
         this.address = address;
         this.description = description;
         // By default, we create 2 rooms
-        ArrayList<Room> places = new ArrayList<Room>();
-        Room terrace = new Room(1,"Terrace", new ArrayList<Table>(), true);
+        ArrayList<Room> places = new ArrayList<>();
+        Room terrace = new Room(1,"Terrace", new ArrayList<>(), true);
         places.add(terrace);
-        Room Mainroom = new Room(2,"MainRoom", new ArrayList<Table>(), true);
+        Room Mainroom = new Room(2,"MainRoom", new ArrayList<>(), true);
         places.add(Mainroom);
         this.rooms = places;
     }

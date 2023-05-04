@@ -1,14 +1,13 @@
 package com.example.javaresto.classes;
 
 public class Table {
-    private int count = 0;
     private int idTable;
     private int places;
     private int idRoom;
     private Order order;
 
     public Table(int id, int places, int idRoom) {
-        this.idTable = count++;     // Number of the table
+        this.idTable = id;     // Number of the table
         this.places = places;       // Number of places
         this.idRoom = idRoom;       // Room where the table is
         this.order = null;          // Order of the table (if there is one)
@@ -29,6 +28,7 @@ public class Table {
     public Order getOrder() {
         return order;
     }
+
 
     // ------------------ //
     // SETTERS
