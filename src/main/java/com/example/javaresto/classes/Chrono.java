@@ -25,7 +25,7 @@ public class Chrono
 
             referenceTime = System.currentTimeMillis();
 
-            System.out.println(value);
+            System.out.println(getTimeMinSec());
 
             end =   forceEnd ? true :
                     wallOfTheEnd == 0 ? false :
@@ -51,5 +51,22 @@ public class Chrono
     public long getTimeMs()
     {
         return value;
+    }
+
+    public String getTimeMinSec()
+    {
+        long minutes, seconds;
+        String time;
+
+        minutes = value / 60000;
+        seconds = value / 1000;
+
+        while(seconds >= 60) seconds -= 60;
+
+        time = minutes < 10 ? "0" + minutes : Long.toString(minutes);
+        time += ":";
+        time += seconds < 10 ? "0" + seconds : Long.toString(seconds);
+
+        return time;
     }
 }
