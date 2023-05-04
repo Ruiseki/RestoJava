@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Employee {
 
+    // ----------------- ATTRIBUTES ----------------- //
+
     private List<Employee> employeeList;
     // name
     private String name;
@@ -13,12 +15,16 @@ public class Employee {
     // hours worked
     private int hoursWorked;
 
+    // ----------------- CONSTRUCTOR ----------------- //
+
     public Employee(String name, String job, int hoursWorked) {
         this.name = name;
         this.job = job;
         this.hoursWorked = hoursWorked;
         this.employeeList = new ArrayList<>();
     }
+
+    // ----------------- GETTERS ----------------- //
 
     public List<Employee> getEmployeeList() {
         return employeeList;
@@ -36,6 +42,9 @@ public class Employee {
         return hoursWorked;
     }
 
+
+    // ----------------- SETTERS ----------------- //
+
     public void setEmployeeList(List<Employee> employeeList) {
         this.employeeList = employeeList;
     }
@@ -51,6 +60,8 @@ public class Employee {
     public void setHoursWorked(int hoursWorked) {
         this.hoursWorked = hoursWorked;
     }
+
+    // ----------------- METHODS ----------------- //
 
     public void addEmployee(Employee employee) {
         employeeList.add(employee);
