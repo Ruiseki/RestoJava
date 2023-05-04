@@ -28,4 +28,17 @@ public class Ingredient {
         return ingredient;
     }
 
+    public static void addIngredient(Ingredient ingredient, List<Ingredient> ingredientList) {
+        ingredientList.add((Ingredient) ingredient);
+    }
+
+    public static void displayIngredient(List<Ingredient> ingredientList){
+        System.out.println("Ingredient :");
+        ingredientList.stream()
+                .map(dish -> "- " + dish.getName() + " (" + dish.getPrice() + "$)")
+                // Removing duplicates
+                .distinct()
+                .forEach(System.out::println);
+    }
+
 }
