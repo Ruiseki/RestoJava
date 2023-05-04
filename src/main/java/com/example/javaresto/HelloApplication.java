@@ -24,9 +24,6 @@ public class HelloApplication extends Application {
         Image saladImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/saladCesar.jpg");
         Image pastaImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/pastaBolo.jpg");*/
 
-        Dish.addDish(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", 8.50, 10.00, null));
-        Dish.addDish(Dish.createDish("Pizza margherita", "Tomate, mozzarella, basilic", 9.00, 11.00, null));
-        Dish.addDish(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00, null));
 
         // Afficher la liste de plats
         Dish.displayMenu();
@@ -35,7 +32,7 @@ public class HelloApplication extends Application {
         Dish.displayDishDetails("Caesar salad");
         
         launch();
-        Chrono chrono = new Chrono();
-        chrono.start(0, false);
+        //Chrono chrono = new Chrono();
+        //chrono.start(0, false);
     }
 }

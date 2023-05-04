@@ -1,12 +1,7 @@
 package com.example.javaresto.classes;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 public class Order {
     private List<Dish> dishes;

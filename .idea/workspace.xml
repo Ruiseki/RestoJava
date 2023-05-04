@@ -10,9 +10,8 @@
     <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/OrderController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/order-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/order-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/controller/OrderController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

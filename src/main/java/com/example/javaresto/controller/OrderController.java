@@ -10,9 +10,9 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class OrderController implements Initializable {
     @FXML
@@ -25,10 +25,10 @@ public class OrderController implements Initializable {
     private Button createOrderButton;
     @FXML
     private TextField textfieldName;
-    public List<Dish> addedDishList;
+    public List<Dish> addedDishList = new ArrayList<>();
     public List<Dish> list = new ArrayList<>();
     public List<Ingredient> ingredientList = new ArrayList<>();
-    public List<Order> listOrder;
+    public List<Order> listOrder = new ArrayList<>();
 
     /**
      * Delete the order in the listOrder
@@ -49,6 +49,7 @@ public class OrderController implements Initializable {
         Double totalRawPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getGrossPrice(), Double::sum);
         Order order = new Order(addedDishList, textfieldName.getText(), "pending", totalNetPrice, totalRawPrice);
         listOrder.add(order);
+        System.out.println(listOrder.get(0).getDishes() + " " + listOrder.get(0).getStatus() + " " + listOrder.get(0).getCustomer() + " " + listOrder.get(0).getNetPrice() + " " + listOrder.get(0).getRawPrice());
     }
 
     /**
@@ -65,9 +66,10 @@ public class OrderController implements Initializable {
      */
 
     public void addDishToList() {
-        Object objectDish = list.stream().filter(dishName -> dishName.equals(comboBoxDish.getValue())).collect(Collectors.toList());
-        Dish savedDish = (Dish) objectDish;
+        List<Dish> objectDish = list.stream().filter(dishName -> dishName.getName().equals(comboBoxDish.getValue())).collect(Collectors.toList());
+        Dish savedDish = objectDish.get(0);
         addedDishList.add(savedDish);
+        System.out.println("List of dish updated");
     }
 
     /**
@@ -89,9 +91,14 @@ public class OrderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        list.add(0, null);
+        list.add(Dish.createDish("Pizza margherita", "Tomato, mozzarella, basilic", 9.00, 11.00, null));
+        list.add(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", 8.50, 10.00, null));
+        list.add(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00, null));
 
-        comboBoxDish.getItems().addAll(list);
+        list.stream().forEach(dish -> comboBoxDish.getItems().add(dish.getName()));
+        ;
         addDishButton.setOnAction((e) -> addDishToList());
+
+        createOrderButton.setOnAction((e) -> createOrder());
     }
 }
