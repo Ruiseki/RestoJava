@@ -77,6 +77,7 @@ public class OrderController implements Initializable {
      */
 
     public void displayListOrder() {
+        listViewOrder.getItems().clear();
         listOrder.stream().forEach(order -> addToListview(order));
     }
 
@@ -86,6 +87,8 @@ public class OrderController implements Initializable {
      */
 
     public void addToListview(Order order) {
+        System.out.println(order);
+        System.out.println(listViewOrder.getItems());
         listViewOrder.getItems().add("Customer name : " + order.getCustomer() + " Status : " + order.getStatus());
     }
 
@@ -99,6 +102,9 @@ public class OrderController implements Initializable {
         ;
         addDishButton.setOnAction((e) -> addDishToList());
 
-        createOrderButton.setOnAction((e) -> createOrder());
+        createOrderButton.setOnAction((e) -> {
+            createOrder();
+            displayListOrder();
+        });
     }
 }
