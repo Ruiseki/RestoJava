@@ -22,15 +22,7 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        Chrono chrono = new Chrono();
-
-        // use this to sync the chrono
-        // chrono.startSync(15000, false);
         
-        // use this one to allow background operation
-        chrono.startThreaded(15000, false);
-
-
         /*Image pizzaImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/pizzaMargherita.jpg");
         Image saladImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/saladCesar.jpg");
         Image pastaImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/pastaBolo.jpg");*/
@@ -45,7 +37,5 @@ public class HelloApplication extends Application {
         Dish.displayDishDetails("Caesar salad");
         
         launch();
-        //Chrono chrono = new Chrono();
-        //chrono.start(0, false);
     }
 }

@@ -5,10 +5,11 @@ import java.util.List;
 
 public class Employee {
 
+
     // ----------------- ATTRIBUTES ----------------- //
 
     private List<Employee> employeeList;
-    // name
+       // name
     private String name;
     // job
     private String job;
@@ -66,5 +67,5 @@ public class Employee {
     public void addEmployee(Employee employee) {
         employeeList.add(employee);
     }
-    
+
 }

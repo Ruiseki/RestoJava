@@ -60,7 +60,6 @@
                   <Label text="Description" />
                </graphic>
             </Label>
-            <Button id="createRestaurantButton" layoutX="75.0" layoutY="258.0" mnemonicParsing="false" onAction="#btnDisplayClicked" prefHeight="25.0" prefWidth="129.0" text="refresh informations" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="634.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0" />
@@ -121,13 +120,55 @@
             </HBox>
          </children>
       </AnchorPane>
-      <TextField id="createRestaurantAdressTextfield" fx:id="createJobTextfield" layoutX="116.0" layoutY="929.0" prefHeight="25.0" prefWidth="204.0" />
-      <ComboBox fx:id="comboBoxEmployee1" layoutX="420.0" layoutY="760.0" prefWidth="150.0" />
-      <Button fx:id="deleteEmployeeButton1" layoutX="570.0" layoutY="760.0" mnemonicParsing="false" text="delete" />
-      <Label layoutX="402.0" layoutY="724.0" prefHeight="29.0" prefWidth="248.0" text="Employee">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
+      <AnchorPane layoutX="950.0" layoutY="348.0" prefHeight="331.0" prefWidth="270.0">
+         <children>
+            <Label fx:id="chronoLabel" layoutX="93.0" layoutY="36.0" text="25:00">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="76.0" layoutY="97.0">
+               <children>
+                  <Button fx:id="chronoButtonStart" layoutX="19.0" mnemonicParsing="false" onAction="#chronoButtonStartClicked" text="Start service" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="chronoButtonPause" layoutX="112.0" layoutY="132.0" mnemonicParsing="false" onAction="#chronoButtonPauseClicked" text="Pause" />
+            <Button fx:id="chronoButtonStop" layoutX="115.0" layoutY="166.0" mnemonicParsing="false" onAction="#chronoButtonStopClicked" text="Stop" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="401.0" layoutY="713.0" prefHeight="200.0" prefWidth="459.0">
+         <children>
+            <Label layoutX="15.0" layoutY="23.0" prefHeight="55.0" prefWidth="94.0" text="Gain">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label fx:id="gain" layoutX="12.0" layoutY="64.0" prefHeight="58.0" prefWidth="86.0" text="0€">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Label layoutX="294.0" layoutY="14.0" prefHeight="55.0" prefWidth="142.0" text="Expense">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label fx:id="expense" layoutX="300.0" layoutY="64.0" prefHeight="58.0" prefWidth="127.0" text="0€">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Label layoutX="183.0" layoutY="66.0" prefHeight="55.0" prefWidth="94.0" text="Profit">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label fx:id="profit" layoutX="188.0" layoutY="121.0" prefHeight="58.0" prefWidth="90.0" text="0€">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
