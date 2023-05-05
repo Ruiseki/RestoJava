@@ -89,6 +89,15 @@ public class MainPageController implements Initializable{
 
     @FXML
     private Button chronoButtonPause;
+
+    @FXML
+    private Label gain;
+
+    @FXML
+    private Label expense;
+
+    @FXML
+    private Label profit;
     
     @FXML
     private TextField textfieldName;
@@ -300,9 +309,13 @@ public class MainPageController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         chrono = new Chrono(chronoLabel);
+
         list.add(Dish.createDish("Pizza margherita", "Tomato, mozzarella, basilic", 9.00, 11.00, null));
         list.add(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", 8.50, 10.00, null));
         list.add(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00, null));
+
+        Money.setProductionPrice(list);
+        expense.setText(Money.expense + "€");
 
         list.stream().forEach(dish -> comboBoxDish.getItems().add(dish.getName()));
         ;

@@ -6,7 +6,7 @@ import com.example.javaresto.classes.Dish;
 import java.util.ArrayList;
 
 public class Money {
-    private static int expense = 0, gain = 0;
+    public static int expense = 0, gain = 0;
     private static ArrayList<Dish> dishes = new ArrayList<Dish>();
 
     public static int computeProfit()
@@ -22,7 +22,7 @@ public class Money {
 
     public static void generateDocument()
     {
-        // PDF here
+
     }
 
     public static void addOrder(Order order)
