@@ -79,6 +79,15 @@ public class MainPageController implements Initializable{
     private Button createOrderButton;
 
     @FXML
+    private Button preparedOrderButton;
+
+    @FXML
+    private Button deleteOrderButton;
+
+    @FXML
+    private ComboBox<String> comboBoxOrder;
+
+    @FXML
     private Label chronoLabel;
 
     @FXML
@@ -98,7 +107,7 @@ public class MainPageController implements Initializable{
 
     @FXML
     private Label profit;
-    
+
     @FXML
     private TextField textfieldName;
 
@@ -125,6 +134,7 @@ public class MainPageController implements Initializable{
 
     Chrono chrono;
 
+    public ArrayList<Order> orderListHistory = new ArrayList<>();
     public Restaurant Myrestaurant;
     @FXML
     void btnCreateClicked(ActionEvent event) {
@@ -134,7 +144,6 @@ public class MainPageController implements Initializable{
 
         ArrayList<Table> tables = new ArrayList<Table>();
         Table table1 = new Table(1, 4, 0);
-        table1.addOrder(new Order(new ArrayList<Dish>(), "Didier-la-Moula", "Pending", 10.01,  1.01));
         tables.add(table1);
         Table table2 = new Table(2, 4, 1);
         tables.add(table2);
@@ -210,7 +219,8 @@ public class MainPageController implements Initializable{
         int NumberPlacesNewTable = Integer.parseInt(TablesPlacesNumberTextfield.getText());
         int locationRoomNewTable = MyrestaurantRoomsComboBox.getSelectionModel().getSelectedIndex();
         Room cibledroom = Myrestaurant.getRooms().get(locationRoomNewTable);
-        int idNewTable = cibledroom.getTables().size() + 1;
+        int idNewTable = Myrestaurant.getRooms().stream().mapToInt(room -> room.getTables().size()).sum() + 1;
+
         Table newTable = new Table(idNewTable, NumberPlacesNewTable, locationRoomNewTable);
         cibledroom.getTables().add(newTable);
         refreshDisplayInformationFront();
@@ -221,54 +231,46 @@ public class MainPageController implements Initializable{
      */
 
     /**
-     * Delete the order in the listOrder
-     * @param order
-     * @param listOrder
-     */
-
-    public void deleteOrder(Order order, ArrayList<Order> listOrder) {
-        List<Order> savedListOrder = listOrder.stream().filter(currentOrder -> currentOrder != order).collect(Collectors.toList());
-    }
-
-    /**
      * Create the order calculating the net price and the raw price
      */
 
     public void createOrder() {
         Double totalNetPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getNetPrice(), Double::sum);
         Double totalRawPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getGrossPrice(), Double::sum);
-        Order order = new Order(addedDishList, textfieldName.getText(), "Pending", totalNetPrice, totalRawPrice);
+        Order order = new Order(addedDishList, textfieldName.getText(), "Pending", totalNetPrice, totalRawPrice, orderListHistory.size()+1);
+        addedDishList.clear();
         listOrder.add(order);
-
+        orderListHistory.add(order);
         // Reserve the table
         String cibledTableInfo = "";
+        int aimTableId = 0;
         try {
             cibledTableInfo = MyrestaurantRoom2ComboBox.getValue();
+            aimTableId = Integer.parseInt(cibledTableInfo.split(" ")[1]);
         }catch(Exception e){
             try {
+                System.out.println(MyrestaurantRoom1ComboBox.getValue());
                 cibledTableInfo = MyrestaurantRoom1ComboBox.getValue();
-            }catch(Exception e2){
+                aimTableId = Integer.parseInt(cibledTableInfo.split(" ")[1]);
+            } catch(Exception e2){
                 System.out.println("No table selected");
             }
         }
 
-        int aimTableId = Integer.parseInt(cibledTableInfo.split(" ")[1]);
-
         Stream cibledRoomStream = Myrestaurant.getRooms().stream();
 
-        List cibledTableList = cibledRoomStream.flatMap(room -> ((Room) room).getTables().stream()).filter(table -> ((Table) table).getIdTable() == aimTableId).toList();
+        int finalAimTableId = aimTableId;
+        List cibledTableList = cibledRoomStream.flatMap(room -> ((Room) room).getTables().stream()).filter(table -> ((Table) table).getIdTable() == finalAimTableId).toList();
         Table cibledTable = (Table) cibledTableList.get(0);
         bookTable(order, cibledTable);
-        // Display the order
-        System.out.println(listOrder.get(0).getDishes() + " " + listOrder.get(0).getStatus() + " " + listOrder.get(0).getCustomer() + " " + listOrder.get(0).getNetPrice() + " " + listOrder.get(0).getRawPrice());
+
     }
 
     private void bookTable(Order order, Table cibledTable) {
         System.out.println("Table booked");
         System.out.println(order.getCustomer());
-        cibledTable.addOrder(order);
+        cibledTable.setOrder(order);
     }
-
     /**
      * Put the status of the order to "prepared"
      * @param order
@@ -295,18 +297,53 @@ public class MainPageController implements Initializable{
 
     public void displayListOrder() {
         listViewOrder.getItems().clear();
+        comboBoxOrder.getItems().clear();
+
+        orderListHistory.stream().forEach(order -> {
+            listViewOrder.getItems().add("Order " + order.getId() + " : " + order.getCustomer()+ " for a total: " + order.getNetPrice() + "€   " + order.getStatus() );
+        });
+
         Myrestaurant.getRooms().stream().forEach(room -> {  // For each room
                 room.getTables().stream().forEach(table ->{ // For each table
                     try{
-                        addToListview(table.getOrder()); // Add the order to the list
+
+                        addToComboBoxOrder(table); // Add the order to the comboBox
                     }catch(Exception e){
                         System.out.println("No order in table " + table.getIdTable());
                     }
                 });
         });
-
     }
 
+    public Table actualTable () {
+        String selectedOrderString = comboBoxOrder.getValue();
+        selectedOrderString = selectedOrderString.split(" ")[3]; // collect Id of the table
+        int selectedOrderId = Integer.parseInt(selectedOrderString);
+        Stream cibledRoomStream = Myrestaurant.getRooms().stream();
+        List cibledTableList = cibledRoomStream.flatMap(room -> ((Room) room).getTables().stream()).filter(table -> ((Table) table).getIdTable() == selectedOrderId).toList();
+        Table cibledTable = (Table) cibledTableList.get(0);
+
+        return cibledTable;
+    }
+
+    public Order actualOrder(){
+        Table theActualTable = actualTable();
+        Order order = theActualTable.getOrder();
+        return order;
+    }
+
+    /**
+     * Delete the order in the listOrder and in the table
+     */
+
+    public void deleteOrder() {
+        Table myActualTable = actualTable();
+        myActualTable.setOrder(null);
+    }
+
+    private void addToComboBoxOrder(Table table) {
+        comboBoxOrder.getItems().add(table.getOrder().getCustomer() + " - Table " + table.getIdTable());
+    }
 
     /**
      * Write the string using some order values and put it in the listView
@@ -314,10 +351,12 @@ public class MainPageController implements Initializable{
      */
 
     public void addToListview(Order order) {
-        System.out.println(order);
-        System.out.println(listViewOrder.getItems());
-        System.out.println("Customer name : " + order.getCustomer() + " Status : " + order.getStatus());
         listViewOrder.getItems().add("Customer name : " + order.getCustomer() + " Status : " + order.getStatus());
+    }
+
+    private void refreshListviewOrder() {
+        listViewOrder.getItems().clear();
+        displayListOrder();
     }
 
     /** ----------------------------------------------------------------------------------------------------------------
@@ -364,6 +403,20 @@ public class MainPageController implements Initializable{
             displayListOrder();
             refreshDisplayInformationFront();
         });
+
+        preparedOrderButton.setOnAction((e) -> {
+            prepareOrder(actualOrder());
+            refreshDisplayInformationFront();
+            refreshListviewOrder();
+        });
+
+        deleteOrderButton.setOnAction((e) -> {
+            deleteOrder();
+            refreshDisplayInformationFront();
+            refreshListviewOrder();
+        });
+
+
     }
 
     // CHRONO

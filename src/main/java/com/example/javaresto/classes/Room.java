@@ -1,7 +1,5 @@
 package com.example.javaresto.classes;
 
-import javafx.beans.binding.Bindings;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -93,7 +91,7 @@ public class Room {
     public void addOrder(int numberOfTable, Order order) {
         for (Table table : tables) {
             if (table.getIdTable() == numberOfTable) {
-                table.addOrder(order);
+                table.setOrder(order);
             }
         }
     }

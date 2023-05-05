@@ -9,6 +9,7 @@ public class Order {
     private String status;
     private Double netPrice;
     private Double rawPrice;
+    private int id;
 
     public ArrayList<Dish> getDishes() {
         return dishes;
@@ -30,17 +31,20 @@ public class Order {
         return rawPrice;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setStatus(String status) {
         this.status = status;
     }
 
-    public Order(ArrayList<Dish> dishes, String customer, String status, Double netPrice, Double rawPrice) {
+    public Order(ArrayList<Dish> dishes, String customer, String status, Double netPrice, Double rawPrice, int id) {
         this.dishes = dishes;
         this.customer = customer;
         this.status = status;
         this.netPrice = netPrice;
         this.rawPrice = rawPrice;
+        this.id = id;
     }
-
-
 }
