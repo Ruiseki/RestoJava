@@ -26,7 +26,6 @@ public class HelloApplication extends Application {
         //Image saladImage = new Image("/JavaResto/src/main/resources/com/example/javaresto/image/saladCesar.jpg");
         //Image pastaImage = new Image("src/main/resources/com/example/javaresto/image/pastaBolo.jpg");
 
-
         launch();
     }
 
