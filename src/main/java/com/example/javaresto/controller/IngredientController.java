@@ -43,6 +43,7 @@ public class IngredientController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         ingredientList.stream().forEach(ingredient -> ingredientBox.getItems().add(ingredient.getName()));
 
         Ingredient.addIngredient(Ingredient.createIngredient("Pasta", 2.50), ingredientList);

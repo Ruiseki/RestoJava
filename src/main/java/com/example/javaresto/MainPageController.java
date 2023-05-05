@@ -101,6 +101,23 @@ public class MainPageController implements Initializable{
     
     @FXML
     private TextField textfieldName;
+
+    @FXML
+    private TextField nameDishTextField;
+
+    @FXML
+    private TextField priceDishTextField;
+
+    @FXML
+    private TextField imageDishTextField;
+
+    @FXML
+    private Label descriptionDishMenuLabel;
+
+    @FXML
+    private ComboBox<String> comboBoxDishMenu;
+
+
     public ArrayList<Dish> addedDishList = new ArrayList<>();
     public ArrayList<Dish> list = new ArrayList<>();
     public ArrayList<Ingredient> ingredientList = new ArrayList<>();
@@ -290,6 +307,7 @@ public class MainPageController implements Initializable{
 
     }
 
+
     /**
      * Write the string using some order values and put it in the listView
      * @param order
@@ -321,6 +339,25 @@ public class MainPageController implements Initializable{
         list.stream().forEach(dish -> comboBoxDish.getItems().add(dish.getName()));
         ;
         addDishButton.setOnAction((e) -> addDishToList());
+
+        comboBoxDishMenu.setOnMouseClicked(event -> {
+            comboBoxDishMenu.getItems().clear();
+            list.stream().map(Dish::getName).forEach(comboBoxDishMenu.getItems()::add);
+        });
+
+        comboBoxDishMenu.setOnAction(event -> {
+            String selectedDishName = comboBoxDishMenu.getValue();
+            List<Dish> matchingDishes = list.stream()
+                    .filter(dish -> dish.getName().equals(selectedDishName))
+                    .collect(Collectors.toList());
+            if (!matchingDishes.isEmpty()) {
+                Dish selectedDish = matchingDishes.get(0);
+                descriptionDishMenuLabel.setText(selectedDish.getDescription());
+            } else {
+                descriptionDishMenuLabel.setText("");
+            }
+        });
+
 
         createOrderButton.setOnAction((e) -> {
             createOrder();
