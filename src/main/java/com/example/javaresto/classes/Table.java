@@ -29,6 +29,10 @@ public class Table {
         return order;
     }
 
+    public String idAndPlaces() {
+        return "Table " + this.getIdTable() + " with " + this.getPlaces() + " places";
+    }
+
 
     // ------------------ //
     // SETTERS

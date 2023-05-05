@@ -94,6 +94,7 @@ public class MainPageController implements Initializable{
 
         ArrayList<Table> tables = new ArrayList<Table>();
         Table table1 = new Table(1, 4, 0);
+        table1.addOrder(new Order(new ArrayList<Dish>(), "Didier-la-Moula", "Pending", 10.01,  1.01));
         tables.add(table1);
         Table table2 = new Table(2, 4, 1);
         tables.add(table2);
@@ -128,13 +129,18 @@ public class MainPageController implements Initializable{
         Myrestaurant = new Restaurant(name, address, description);
         Myrestaurant.getRooms().get(0).setTables(listTableRoom1);
         Myrestaurant.getRooms().get(1).setTables(listTableRoom2);
-        List restaurantRoomStream = Myrestaurant.getRooms().stream().map(Room::getName).toList();
+        List restaurantRoomNameStream = Myrestaurant.getRooms().stream().map(Room::getName).toList();
+
         MyrestaurantRoomsComboBox.getItems().clear();
-        MyrestaurantRoomsComboBox.getItems().addAll(restaurantRoomStream);
+        MyrestaurantRoomsComboBox.getItems().addAll(restaurantRoomNameStream);
     }
 
     @FXML
     void btnDisplayClicked(ActionEvent event) {
+        refreshDisplayInformationFront();
+    }
+
+    void refreshDisplayInformationFront(){
         displayRNameLabel.setText(Myrestaurant.getName());
         displayRDescriptionLabel.setText(Myrestaurant.getDescription());
         displayRAddressLabel.setText(Myrestaurant.getAddress());
@@ -152,11 +158,13 @@ public class MainPageController implements Initializable{
         displayEmptyTablesLabel2.setText(String.valueOf(Myrestaurant.getRooms().get(1).getNumberOfTableAvailable()));
 
         // set the empty tables to the ComboxBox
+        //Room1
         MyrestaurantRoom1ComboBox.getItems().clear();
-        MyrestaurantRoom1ComboBox.getItems().addAll(Myrestaurant.getRooms().get(0).getTables().stream().filter(table -> table.getIsAvailable()).map(Table::getIdTable).map(String::valueOf).toList());
+        MyrestaurantRoom1ComboBox.getItems().addAll(Myrestaurant.getRooms().get(0).getTables().stream().filter(table -> table.getIsAvailable()).map(Table::idAndPlaces).map(String::valueOf).toList());
 
+        //Room2
         MyrestaurantRoom2ComboBox.getItems().clear();
-        MyrestaurantRoom2ComboBox.getItems().addAll(Myrestaurant.getRooms().get(1).getTables().stream().filter(table -> table.getIsAvailable()).map(Table::getIdTable).map(String::valueOf).toList());
+        MyrestaurantRoom2ComboBox.getItems().addAll(Myrestaurant.getRooms().get(1).getTables().stream().filter(table -> table.getIsAvailable()).map(Table::idAndPlaces).map(String::valueOf).toList());
 
 
     }
@@ -191,9 +199,36 @@ public class MainPageController implements Initializable{
     public void createOrder() {
         Double totalNetPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getNetPrice(), Double::sum);
         Double totalRawPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getGrossPrice(), Double::sum);
-        Order order = new Order(addedDishList, textfieldName.getText(), "pending", totalNetPrice, totalRawPrice);
+        Order order = new Order(addedDishList, textfieldName.getText(), "Pending", totalNetPrice, totalRawPrice);
         listOrder.add(order);
+
+        // Reserve the table
+        String cibledTableInfo = "";
+        try {
+            cibledTableInfo = MyrestaurantRoom2ComboBox.getValue();
+        }catch(Exception e){
+            try {
+                cibledTableInfo = MyrestaurantRoom1ComboBox.getValue();
+            }catch(Exception e2){
+                System.out.println("No table selected");
+            }
+        }
+
+        int aimTableId = Integer.parseInt(cibledTableInfo.split(" ")[1]);
+
+        Stream cibledRoomStream = Myrestaurant.getRooms().stream();
+
+        List cibledTableList = cibledRoomStream.flatMap(room -> ((Room) room).getTables().stream()).filter(table -> ((Table) table).getIdTable() == aimTableId).toList();
+        Table cibledTable = (Table) cibledTableList.get(0);
+        bookTable(order, cibledTable);
+        // Display the order
         System.out.println(listOrder.get(0).getDishes() + " " + listOrder.get(0).getStatus() + " " + listOrder.get(0).getCustomer() + " " + listOrder.get(0).getNetPrice() + " " + listOrder.get(0).getRawPrice());
+    }
+
+    private void bookTable(Order order, Table cibledTable) {
+        System.out.println("Table booked");
+        System.out.println(order.getCustomer());
+        cibledTable.addOrder(order);
     }
 
     /**
@@ -222,7 +257,16 @@ public class MainPageController implements Initializable{
 
     public void displayListOrder() {
         listViewOrder.getItems().clear();
-        listOrder.stream().forEach(order -> addToListview(order));
+        Myrestaurant.getRooms().stream().forEach(room -> {  // For each room
+                room.getTables().stream().forEach(table ->{ // For each table
+                    try{
+                        addToListview(table.getOrder()); // Add the order to the list
+                    }catch(Exception e){
+                        System.out.println("No order in table " + table.getIdTable());
+                    }
+                });
+        });
+
     }
 
     /**
@@ -233,6 +277,7 @@ public class MainPageController implements Initializable{
     public void addToListview(Order order) {
         System.out.println(order);
         System.out.println(listViewOrder.getItems());
+        System.out.println("Customer name : " + order.getCustomer() + " Status : " + order.getStatus());
         listViewOrder.getItems().add("Customer name : " + order.getCustomer() + " Status : " + order.getStatus());
     }
 
@@ -253,7 +298,10 @@ public class MainPageController implements Initializable{
         createOrderButton.setOnAction((e) -> {
             createOrder();
             displayListOrder();
+            refreshDisplayInformationFront();
         });
     }
+
+
 
 }
