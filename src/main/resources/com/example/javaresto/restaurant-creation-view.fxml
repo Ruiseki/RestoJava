@@ -112,10 +112,18 @@
       </AnchorPane>
       <AnchorPane layoutX="950.0" layoutY="348.0" prefHeight="331.0" prefWidth="270.0">
          <children>
-            <Label fx:id="chronoLabel" layoutX="121.0" layoutY="47.0" text="00:00" />
-            <Button fx:id="chronoButtonStart" layoutX="76.0" layoutY="97.0" mnemonicParsing="false" text="Démarrer le service" />
-            <Button fx:id="chronoButtonPause" layoutX="112.0" layoutY="132.0" mnemonicParsing="false" text="Pause" />
-            <Button fx:id="chronoButtonStop" layoutX="115.0" layoutY="166.0" mnemonicParsing="false" text="Stop" />
+            <Label fx:id="chronoLabel" layoutX="93.0" layoutY="36.0" text="25:00">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="76.0" layoutY="97.0">
+               <children>
+                  <Button fx:id="chronoButtonStart" layoutX="19.0" mnemonicParsing="false" onAction="#chronoButtonStartClicked" text="Start service" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="chronoButtonPause" layoutX="112.0" layoutY="132.0" mnemonicParsing="false" onAction="#chronoButtonPauseClicked" text="Pause" />
+            <Button fx:id="chronoButtonStop" layoutX="115.0" layoutY="166.0" mnemonicParsing="false" onAction="#chronoButtonStopClicked" text="Stop" />
          </children>
       </AnchorPane>
    </children>

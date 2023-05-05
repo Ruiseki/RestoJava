@@ -22,8 +22,7 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        Chrono chrono = new Chrono();
-
+        
         /*Image pizzaImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/pizzaMargherita.jpg");
         Image saladImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/saladCesar.jpg");
         Image pastaImage = new Image("/Users/smajicmathias/Desktop/JavaResto/src/main/resources/com/example/javaresto/image/pastaBolo.jpg");*/

@@ -97,7 +97,7 @@ public class MainPageController implements Initializable{
     public ArrayList<Ingredient> ingredientList = new ArrayList<>();
     public ArrayList<Order> listOrder = new ArrayList<>();
 
-    Chrono chrono = new Chrono();
+    Chrono chrono;
 
     public Restaurant Myrestaurant;
     @FXML
@@ -256,6 +256,7 @@ public class MainPageController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        chrono = new Chrono(chronoLabel);
         list.add(Dish.createDish("Pizza margherita", "Tomato, mozzarella, basilic", 9.00, 11.00, null));
         list.add(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", 8.50, 10.00, null));
         list.add(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00, null));
@@ -276,5 +277,27 @@ public class MainPageController implements Initializable{
     void chronoButtonStartClicked(ActionEvent e)
     {
         chrono.startThreaded(25 * 60 * 1000, true);
+    }
+
+    @FXML
+    void chronoButtonPauseClicked(ActionEvent e)
+    {
+        if(chrono.isPaused())
+        {
+            chrono.resume();
+            chronoButtonPause.setText("Pause");
+        }
+        else
+        {
+            chrono.pause();
+            chronoButtonPause.setText("Resume");
+        }
+    }
+
+    @FXML
+    void chronoButtonStopClicked(ActionEvent e)
+    {
+        chrono.stop();
+        chronoLabel.setText("25:00");
     }
 }

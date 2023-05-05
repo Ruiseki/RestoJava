@@ -1,12 +1,19 @@
 package com.example.javaresto.classes;
 
+import javafx.application.Platform;
+import javafx.scene.control.Label;
+
 public class Chrono
 {
     private long value = 0, referenceTime;
     private boolean pause = false, forceEnd = false, threadMode, elapsed = true;
     private Thread task;
+    private Label chronoLabel;
 
-    public Chrono() {}
+    public Chrono(Label label)
+    {
+        chronoLabel = label;
+    }
     
     public void startSync(long wallOfTheEnd, boolean reverse)
     {
@@ -36,6 +43,7 @@ public class Chrono
                     (!reverse && value >= wallOfTheEnd) || (reverse && value <= 0) ? true : false;
 
         } while (!end);
+        forceEnd = false;
         elapsed = true;
         System.out.println("Time limit reached");
     }
@@ -62,7 +70,11 @@ public class Chrono
         String time = getTimeMinSec();
 
         if (!time.equals(oldTime))
+        {
+            Platform.runLater(() -> chronoLabel.setText(time));
             System.out.println(time);
+        }
+
         else return false;
 
         return true;
@@ -75,12 +87,10 @@ public class Chrono
 
     public void pause()
     {
-        if(threadMode) return;
         pause = true;
     }
     public void resume()
     {
-        if(threadMode) return;
         pause = false;
     }
 
@@ -110,5 +120,10 @@ public class Chrono
         time += seconds < 10 ? "0" + seconds : Long.toString(seconds);
 
         return time;
+    }
+
+    public boolean isPaused()
+    {
+        return pause;
     }
 }
