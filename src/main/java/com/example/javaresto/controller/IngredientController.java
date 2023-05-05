@@ -27,5 +27,4 @@ public class IngredientController {
         private void handleAddButtonAction(ActionEvent event){
 
         }
-
 }

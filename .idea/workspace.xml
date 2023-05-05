@@ -9,15 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="put the window to the right size">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Restaurant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/restaurant-creation-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/restaurant-creation-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/controller/IngredientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/controller/IngredientController.java" afterDir="false" />
     </list>
-    <list id="69e84269-b33a-4e8b-a96c-953ee8df0405" name="Changes by Utilisateur" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/restaurant-creation-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/restaurant-creation-view.fxml" afterDir="false" />
-    </list>
+    <list id="69e84269-b33a-4e8b-a96c-953ee8df0405" name="Changes by Utilisateur" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,11 +35,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -53,32 +47,6 @@
         <option name="url" value="https://github.com/Ruiseki/RestoJava.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="8" changelist="69e84269-b33a-4e8b-a96c-953ee8df0405" />
-        <range start1="9" end1="12" start2="14" end2="15" changelist="69e84269-b33a-4e8b-a96c-953ee8df0405" />
-        <range start1="20" end1="20" start2="23" end2="29" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="80" end1="80" start2="89" end2="90" changelist="69e84269-b33a-4e8b-a96c-953ee8df0405" />
-        <range start1="89" end1="90" start2="99" end2="100" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="99" end1="100" start2="109" end2="110" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="101" end1="101" start2="111" end2="130" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="103" end1="104" start2="132" end2="134" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="115" end1="115" start2="145" end2="152" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="116" end1="138" start2="153" end2="165" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="212" end1="212" start2="239" end2="240" changelist="69e84269-b33a-4e8b-a96c-953ee8df0405" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/resources/com/example/javaresto/restaurant-creation-view.fxml">
-      <ranges>
-        <range start1="2" end1="10" start2="2" end2="5" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="11" end1="12" start2="6" end2="7" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="90" end1="91" start2="85" end2="86" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="92" end1="93" start2="87" end2="88" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
-        <range start1="97" end1="98" start2="92" end2="98" changelist="69e84269-b33a-4e8b-a96c-953ee8df0405" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -95,6 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "dev",
     "last_directory_selection": "/Users/zook/IdeaProjects/JavaResto/src/main/resources/com/example/javaresto",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
