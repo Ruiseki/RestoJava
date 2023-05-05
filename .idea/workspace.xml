@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="add possibility to reserve table, add an order to the table and refresh after">
+    <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="add possibility to prepare and delete command from table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/restaurant-creation-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javaresto/restaurant-creation-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Table.java" afterDir="false" />
+    </list>
+    <list id="35aa1284-ef31-41d5-8fe5-014a6002cbdb" name="Changes by Utilisateur" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +35,28 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java">
+      <ranges>
+        <range start1="87" end1="88" start2="87" end2="88" changelist="35aa1284-ef31-41d5-8fe5-014a6002cbdb" />
+        <range start1="95" end1="96" start2="95" end2="95" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
+        <range start1="105" end1="106" start2="104" end2="104" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
+        <range start1="181" end1="182" start2="179" end2="181" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
+        <range start1="190" end1="200" start2="189" end2="189" changelist="35aa1284-ef31-41d5-8fe5-014a6002cbdb" />
+        <range start1="210" end1="211" start2="199" end2="199" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
+        <range start1="213" end1="214" start2="201" end2="202" changelist="35aa1284-ef31-41d5-8fe5-014a6002cbdb" />
+        <range start1="240" end1="241" start2="228" end2="229" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
+        <range start1="269" end1="269" start2="257" end2="258" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
+        <range start1="273" end1="273" start2="262" end2="263" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
+        <range start1="278" end1="278" start2="268" end2="277" changelist="35aa1284-ef31-41d5-8fe5-014a6002cbdb" />
+        <range start1="279" end1="279" start2="278" end2="298" changelist="35aa1284-ef31-41d5-8fe5-014a6002cbdb" />
+        <range start1="293" end1="293" start2="312" end2="317" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
+        <range start1="304" end1="305" start2="328" end2="331" changelist="35aa1284-ef31-41d5-8fe5-014a6002cbdb" />
+        <range start1="312" end1="312" start2="338" end2="350" changelist="c9d10ffe-113e-4571-bfc1-2c0e2b305212" />
+        <range start1="316" end1="316" start2="354" end2="355" changelist="35aa1284-ef31-41d5-8fe5-014a6002cbdb" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -41,18 +66,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -116,6 +142,7 @@
     <MESSAGE value="merge with Dev" />
     <MESSAGE value="fix bugs using comments onto Table branch" />
     <MESSAGE value="add possibility to reserve table, add an order to the table and refresh after" />
-    <option name="LAST_COMMIT_MESSAGE" value="add possibility to reserve table, add an order to the table and refresh after" />
+    <MESSAGE value="add possibility to prepare and delete command from table" />
+    <option name="LAST_COMMIT_MESSAGE" value="add possibility to prepare and delete command from table" />
   </component>
 </project>

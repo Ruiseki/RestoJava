@@ -40,9 +40,11 @@ public class Table {
     public void setIdRoom(int idRoom) {
         this.idRoom = idRoom;
     }
-
     public void setPlaces(int places) {
         this.places = places;
+    }
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     // ------------------ //
@@ -51,11 +53,6 @@ public class Table {
     // to display the different information about the table
     public String toString() {
         return "Table " + this.idTable + " with " + this.places + " places";
-    }
-
-    // to add an order to the table
-    public void addOrder(Order order) {
-        this.order = order;
     }
 
     // to remove an order from the table

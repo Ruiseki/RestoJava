@@ -93,7 +93,6 @@ public class MainPageController implements Initializable{
     public ArrayList<Dish> list = new ArrayList<>();
     public ArrayList<Ingredient> ingredientList = new ArrayList<>();
     public ArrayList<Order> listOrder = new ArrayList<>();
-
     public Restaurant Myrestaurant;
     @FXML
     void btnCreateClicked(ActionEvent event) {
@@ -103,7 +102,6 @@ public class MainPageController implements Initializable{
 
         ArrayList<Table> tables = new ArrayList<Table>();
         Table table1 = new Table(1, 4, 0);
-        table1.addOrder(new Order(new ArrayList<Dish>(), "Didier-la-Moula", "Pending", 10.01,  1.01));
         tables.add(table1);
         Table table2 = new Table(2, 4, 1);
         tables.add(table2);
@@ -179,7 +177,8 @@ public class MainPageController implements Initializable{
         int NumberPlacesNewTable = Integer.parseInt(TablesPlacesNumberTextfield.getText());
         int locationRoomNewTable = MyrestaurantRoomsComboBox.getSelectionModel().getSelectedIndex();
         Room cibledroom = Myrestaurant.getRooms().get(locationRoomNewTable);
-        int idNewTable = cibledroom.getTables().size() + 1;
+        int idNewTable = Myrestaurant.getRooms().stream().mapToInt(room -> room.getTables().size()).sum() + 1;
+
         Table newTable = new Table(idNewTable, NumberPlacesNewTable, locationRoomNewTable);
         cibledroom.getTables().add(newTable);
         refreshDisplayInformationFront();
@@ -208,7 +207,6 @@ public class MainPageController implements Initializable{
         Double totalRawPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getGrossPrice(), Double::sum);
         Order order = new Order(addedDishList, textfieldName.getText(), "Pending", totalNetPrice, totalRawPrice);
         listOrder.add(order);
-
         // Reserve the table
         String cibledTableInfo = "";
         int aimTableId = 1;
@@ -238,7 +236,7 @@ public class MainPageController implements Initializable{
     private void bookTable(Order order, Table cibledTable) {
         System.out.println("Table booked");
         System.out.println(order.getCustomer());
-        cibledTable.addOrder(order);
+        cibledTable.setOrder(order);
     }
 
     /**
@@ -267,10 +265,12 @@ public class MainPageController implements Initializable{
 
     public void displayListOrder() {
         listViewOrder.getItems().clear();
+        comboBoxOrder.getItems().clear();
         Myrestaurant.getRooms().stream().forEach(room -> {  // For each room
                 room.getTables().stream().forEach(table ->{ // For each table
                     try{
                         addToListview(table.getOrder()); // Add the order to the list
+                        addToComboBoxOrder(table); // Add the order to the comboBox
                     }catch(Exception e){
                         System.out.println("No order in table " + table.getIdTable());
                     }
@@ -291,6 +291,11 @@ public class MainPageController implements Initializable{
         listViewOrder.getItems().add("Customer name : " + order.getCustomer() + " Status : " + order.getStatus());
     }
 
+    private void refreshListviewOrder() {
+        listViewOrder.getItems().clear();
+        displayListOrder();
+    }
+
     /** ----------------------------------------------------------------------------------------------------------------
      * Initialize
      */
@@ -309,6 +314,18 @@ public class MainPageController implements Initializable{
             createOrder();
             displayListOrder();
             refreshDisplayInformationFront();
+        });
+
+        preparedOrderButton.setOnAction((e) -> {
+            prepareOrder(actualOrder());
+            refreshDisplayInformationFront();
+            refreshListviewOrder();
+        });
+
+        deleteOrderButton.setOnAction((e) -> {
+            deleteOrder();
+            refreshDisplayInformationFront();
+            refreshListviewOrder();
         });
 
 
