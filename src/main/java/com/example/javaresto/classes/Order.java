@@ -34,13 +34,12 @@ public class Order {
         this.status = status;
     }
 
-    public Order(ArrayList<Dish> dishes, String customer, String status, Double netPrice, Double rawPrice) {
+    public Order(ArrayList<Dish> dishes, String customer, String status, Double netPrice, Double rawPrice, int id) {
         this.dishes = dishes;
         this.customer = customer;
         this.status = status;
         this.netPrice = netPrice;
         this.rawPrice = rawPrice;
+        this.id = id;
     }
-
-
 }
