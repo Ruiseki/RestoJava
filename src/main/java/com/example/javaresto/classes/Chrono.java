@@ -22,6 +22,7 @@ public class Chrono
         value = reverse ? wallOfTheEnd : 0;
         referenceTime = System.currentTimeMillis();
         String oldTime = getTimeMinSec();
+        boolean serviceLocked = false;
 
         do
         {
@@ -33,6 +34,16 @@ public class Chrono
                     value += Math.abs( referenceTime - System.currentTimeMillis() ) * -1;
             }
 
+            // lock the service when 15min is remaining
+            if(!serviceLocked && reverse)
+            {
+                if(value <= 15 * 60 * 1000)
+                {
+                    serviceLocked = true;
+                    // Order.lockService();
+                }
+            }
+
             referenceTime = System.currentTimeMillis();
             if (displayTimeEachSecond(oldTime));
                 oldTime = getTimeMinSec();
@@ -42,6 +53,7 @@ public class Chrono
                     (!reverse && value >= wallOfTheEnd) || (reverse && value <= 0) ? true : false;
 
         } while (!end);
+        serviceLocked = true;
         forceEnd = false;
         elapsed = true;
         System.out.println("Time limit reached");
