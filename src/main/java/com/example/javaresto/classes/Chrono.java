@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 public class Chrono
 {
     private long value = 0, referenceTime;
-    private boolean pause = false, forceEnd = false, threadMode, elapsed = true;
+    private boolean pause = false, forceEnd = false, elapsed = true;
     private Thread task;
     private Label chronoLabel;
 
@@ -18,7 +18,6 @@ public class Chrono
     public void startSync(long wallOfTheEnd, boolean reverse)
     {
         elapsed = false;
-        threadMode = false;
         boolean end = false;
         value = reverse ? wallOfTheEnd : 0;
         referenceTime = System.currentTimeMillis();
@@ -55,7 +54,6 @@ public class Chrono
 
     public void startThreaded(long wallOfTheEnd, boolean reverse)
     {
-        threadMode = true;
         task = new Thread(() -> startSync(wallOfTheEnd, reverse));
         task.start();
     }

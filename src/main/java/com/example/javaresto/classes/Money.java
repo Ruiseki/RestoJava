@@ -1,8 +1,5 @@
 package com.example.javaresto.classes;
 
-import com.example.javaresto.classes.Order;
-import com.example.javaresto.classes.Dish;
-
 import java.util.ArrayList;
 
 public class Money {
