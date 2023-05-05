@@ -40,9 +40,6 @@ public class HelloApplication extends Application {
 
         // Afficher la liste de plats
         Dish.displayMenu();
-
-        // Afficher les détails d'un plat spécifique
-        Dish.displayDishDetails("Caesar salad");
         
         launch();
         //Chrono chrono = new Chrono();
