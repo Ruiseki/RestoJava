@@ -57,9 +57,9 @@ public class IngredientController implements Initializable {
         Ingredient.addIngredient(Ingredient.createIngredient("Parmesan", 1.00), ingredientList);
         Ingredient.addIngredient(Ingredient.createIngredient("Crouton", 2.00), ingredientList);
 
-        Dish.addDish(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", Dish.calculateNetPrice(8.50), 8.50, null));
-        Dish.addDish(Dish.createDish("Pizza margherita", "Tomate, mozzarella, basilic", Dish.calculateNetPrice(10.00), 10.00, null));
-        Dish.addDish(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", Dish.calculateNetPrice(6.00), 6.0, null));
+        Dish.addDish(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", Dish.calculateNetPrice(8.50), 8.50));
+        Dish.addDish(Dish.createDish("Pizza margherita", "Tomate, mozzarella, basilic", Dish.calculateNetPrice(10.00), 10.00));
+        Dish.addDish(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", Dish.calculateNetPrice(6.00), 6.0));
 
         // Display the list of dishes
         Dish.displayMenu();

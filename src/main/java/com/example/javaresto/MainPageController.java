@@ -203,15 +203,15 @@ public class MainPageController implements Initializable{
         displayRDescriptionLabel.setText(Myrestaurant.getDescription());
         displayRAddressLabel.setText(Myrestaurant.getAddress());
 
-        // set the name of the room to there labels
+        // set the name of the room to their labels
         displayRoomNameLabel1.setText(Myrestaurant.getRooms().get(0).getName());
         displayRoomNameLabel2.setText(Myrestaurant.getRooms().get(1).getName());
 
-        // set the number of tables to there labels
+        // set the number of tables to their labels
         displayRoomNumTablesLabel1.setText(String.valueOf(Myrestaurant.getRooms().get(0).getTables().size()));
         displayRoomNumTablesLabel2.setText(String.valueOf(Myrestaurant.getRooms().get(1).getTables().size()));
 
-        // set the number of empty tables to there labels
+        // set the number of empty tables to their labels
         displayEmptyTablesLabel1.setText(String.valueOf(Myrestaurant.getRooms().get(0).getNumberOfTableAvailable()));
         displayEmptyTablesLabel2.setText(String.valueOf(Myrestaurant.getRooms().get(1).getNumberOfTableAvailable()));
 
@@ -274,7 +274,7 @@ public class MainPageController implements Initializable{
     public void createOrder() {
         Double totalNetPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getNetPrice(), Double::sum);
         Double totalRawPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getGrossPrice(), Double::sum);
-        Order order = new Order(addedDishList, textfieldName.getText(), "Pending", totalNetPrice, totalRawPrice, orderListHistory.size()+1);
+        Order order = new Order(textfieldName.getText(), "Pending", totalNetPrice, orderListHistory.size()+1);
         addedDishList.clear();
         listOrder.add(order);
         orderListHistory.add(order);
@@ -404,16 +404,15 @@ public class MainPageController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         chrono = new Chrono(chronoLabel);
 
-        list.add(Dish.createDish("Pizza margherita", "Tomato, mozzarella, basilic", 9.00, 11.00, null));
-        list.add(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", 8.50, 10.00, null));
-        list.add(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00, null));
+        list.add(Dish.createDish("Pizza margherita", "Tomato, mozzarella, basilic", 9.00, 11.00));
+        list.add(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", 8.50, 10.00));
+        list.add(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00));
 
         Money.setProductionPrice(list);
         expense.setText(Money.expense + "€");
         profit.setText(Money.computeProfit() + "€");
 
         list.stream().forEach(dish -> comboBoxDish.getItems().add(dish.getName()));
-        ;
         addDishButton.setOnAction((e) -> addDishToList());
 
         /* comboBoxDishMenu.setOnMouseClicked(event -> {

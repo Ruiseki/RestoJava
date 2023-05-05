@@ -1,19 +1,12 @@
 package com.example.javaresto.classes;
 
 import java.util.ArrayList;
-import java.util.Optional;
-
 public class Order {
-    private ArrayList<Dish> dishes;
     private String customer;
     private String status;
     private Double netPrice;
-    private Double rawPrice;
     private int id;
 
-    public ArrayList<Dish> getDishes() {
-        return dishes;
-    }
 
     public String getCustomer() {
         return customer;
@@ -27,10 +20,6 @@ public class Order {
         return netPrice;
     }
 
-    public Double getRawPrice() {
-        return rawPrice;
-    }
-
     public int getId() {
         return id;
     }
@@ -39,12 +28,10 @@ public class Order {
         this.status = status;
     }
 
-    public Order(ArrayList<Dish> dishes, String customer, String status, Double netPrice, Double rawPrice, int id) {
-        this.dishes = dishes;
+    public Order(String customer, String status, Double netPrice, int id) {
         this.customer = customer;
         this.status = status;
         this.netPrice = netPrice;
-        this.rawPrice = rawPrice;
         this.id = id;
     }
 }

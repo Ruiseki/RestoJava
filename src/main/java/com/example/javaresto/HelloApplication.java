@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("restaurant-creation-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("RestoJava");
+        stage.setTitle("RestaurantJava");
         stage.setScene(scene);
         stage.show();
     }
@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
         // add stock to the list for calculating expense
         // Money.setProductionPrice(/* dish arraylist here */); 
 
-        // Afficher la liste de plats
+        // Display the menu
         Dish.displayMenu();
         
         launch();

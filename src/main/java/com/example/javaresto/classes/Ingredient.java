@@ -1,6 +1,5 @@
 package com.example.javaresto.classes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Ingredient {
@@ -24,12 +23,11 @@ public class Ingredient {
 
 
     public static Ingredient createIngredient(String name, double price) {
-        Ingredient ingredient = new Ingredient(name, price);
-        return ingredient;
+        return new Ingredient(name, price);
     }
 
     public static void addIngredient(Ingredient ingredient, List<Ingredient> ingredientList) {
-        ingredientList.add((Ingredient) ingredient);
+        ingredientList.add(ingredient);
     }
 
     public static void displayIngredient(List<Ingredient> ingredientList){
