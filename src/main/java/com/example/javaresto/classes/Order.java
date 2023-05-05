@@ -9,6 +9,7 @@ public class Order {
     private String status;
     private Double netPrice;
     private Double rawPrice;
+    private int id;
 
     public ArrayList<Dish> getDishes() {
         return dishes;
@@ -28,6 +29,10 @@ public class Order {
 
     public Double getRawPrice() {
         return rawPrice;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setStatus(String status) {
