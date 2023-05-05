@@ -68,10 +68,7 @@ public class Chrono
         String time = getTimeMinSec();
 
         if (!time.equals(oldTime))
-        {
             Platform.runLater(() -> chronoLabel.setText(time));
-            System.out.println(time);
-        }
 
         else return false;
 
