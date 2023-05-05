@@ -1,15 +1,12 @@
 package com.example.javaresto;
 
-import com.example.javaresto.classes.Restaurant;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-import com.example.javaresto.classes.Chrono;
 import com.example.javaresto.classes.Dish;
-import com.example.javaresto.classes.Money;
 
 public class HelloApplication extends Application {
     @Override

@@ -5,9 +5,8 @@ import javafx.scene.control.Label;
 
 public class Chrono
 {
-    private long value = 0, referenceTime;
-    private boolean pause = false, forceEnd = false, elapsed = true;
-    private Thread task;
+    private long value = 0;
+    private boolean pause = false, forceEnd = false;
     private Label chronoLabel;
 
     public Chrono(Label label)
@@ -17,10 +16,9 @@ public class Chrono
     
     public void startSync(long wallOfTheEnd, boolean reverse)
     {
-        elapsed = false;
-        boolean end = false;
+        boolean end;
         value = reverse ? wallOfTheEnd : 0;
-        referenceTime = System.currentTimeMillis();
+        long referenceTime = System.currentTimeMillis();
         String oldTime = getTimeMinSec();
         boolean serviceLocked = false;
 
@@ -45,36 +43,22 @@ public class Chrono
             }
 
             referenceTime = System.currentTimeMillis();
-            if (displayTimeEachSecond(oldTime));
+            if (displayTimeEachSecond(oldTime))
                 oldTime = getTimeMinSec();
 
-            end =   forceEnd ? true :
-                    wallOfTheEnd == 0 ? false :
-                    (!reverse && value >= wallOfTheEnd) || (reverse && value <= 0) ? true : false;
+            end = forceEnd || (wallOfTheEnd != 0 && ((!reverse && value >= wallOfTheEnd) || (reverse && value <= 0)));
 
         } while (!end);
-        serviceLocked = true;
         forceEnd = false;
-        elapsed = true;
         System.out.println("Time limit reached");
-    }
-    
-    public void startSync()
-    {
-        startSync(0, false);
     }
 
     public void startThreaded(long wallOfTheEnd, boolean reverse)
     {
-        task = new Thread(() -> startSync(wallOfTheEnd, reverse));
+        Thread task = new Thread(() -> startSync(wallOfTheEnd, reverse));
         task.start();
     }
 
-    public void startThreaded()
-    {
-        startThreaded(0, false);
-    }
-    
     private boolean displayTimeEachSecond(String oldTime)
     {
         String time = getTimeMinSec();
@@ -85,11 +69,6 @@ public class Chrono
         else return false;
 
         return true;
-    }
-
-    public boolean isTimeElapsed()
-    {
-        return elapsed;
     }
 
     public void pause()
@@ -105,11 +84,6 @@ public class Chrono
     {
         forceEnd = true;
         value = 0;
-    }
-
-    public long getTimeMs()
-    {
-        return value;
     }
 
     public String getTimeMinSec()

@@ -3,7 +3,6 @@ package com.example.javaresto.classes;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class Dish extends Ingredient {
@@ -12,16 +11,14 @@ public class Dish extends Ingredient {
     private String description;
     private double netPrice;
     private double grossPrice;
-    private Image image;
     private static ArrayList<Dish> dishList = new ArrayList<>();
 
-    public Dish(String name, String description, double netPrice, double grossPrice, Image image) {
+    public Dish(String name, String description, double netPrice, double grossPrice) {
         super(name, grossPrice);
         this.name = name;
         this.description = description;
         this.netPrice = netPrice;
         this.grossPrice = grossPrice;
-        this.image = image;
     }
 
     public String getName() {
@@ -40,15 +37,10 @@ public class Dish extends Ingredient {
         return grossPrice;
     }
 
-    public Image getImage() {
-        return image;
+    public static Dish createDish(String name, String description, double netPrice, double grossPrice) {
+        return new Dish(name, description, netPrice, grossPrice);
     }
 
-
-    public static Dish createDish(String name, String description, double netPrice, double grossPrice, Image image) {
-        Dish dish = new Dish(name, description, netPrice, grossPrice, image);
-        return dish;
-    }
 
     public static void addDish(Dish dish) {
         dishList.add(dish);
