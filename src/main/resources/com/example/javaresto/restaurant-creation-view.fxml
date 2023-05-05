@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1027.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaresto.MainPageController">
+<AnchorPane prefHeight="1027.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaresto.MainPageController">
    <children>
     <AnchorPane layoutX="98.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0">
          <children>
@@ -103,6 +108,14 @@
                   <Button fx:id="createOrderButton" mnemonicParsing="false" text="Create an order" />
                </children>
             </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="950.0" layoutY="348.0" prefHeight="331.0" prefWidth="270.0">
+         <children>
+            <Label fx:id="chronoLabel" layoutX="121.0" layoutY="47.0" text="00:00" />
+            <Button fx:id="chronoButtonStart" layoutX="76.0" layoutY="97.0" mnemonicParsing="false" text="Démarrer le service" />
+            <Button fx:id="chronoButtonPause" layoutX="112.0" layoutY="132.0" mnemonicParsing="false" text="Pause" />
+            <Button fx:id="chronoButtonStop" layoutX="115.0" layoutY="166.0" mnemonicParsing="false" text="Stop" />
          </children>
       </AnchorPane>
    </children>

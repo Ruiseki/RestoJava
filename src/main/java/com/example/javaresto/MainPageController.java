@@ -79,11 +79,25 @@ public class MainPageController implements Initializable{
     private Button createOrderButton;
 
     @FXML
+    private Label chronoLabel;
+
+    @FXML
+    private Button chronoButtonStart;
+
+    @FXML
+    private Button chronoButtonStop;
+
+    @FXML
+    private Button chronoButtonPause;
+
+    @FXML
     private TextField textfieldName;
     public ArrayList<Dish> addedDishList = new ArrayList<>();
     public ArrayList<Dish> list = new ArrayList<>();
     public ArrayList<Ingredient> ingredientList = new ArrayList<>();
     public ArrayList<Order> listOrder = new ArrayList<>();
+
+    Chrono chrono = new Chrono();
 
     public Restaurant Myrestaurant;
     @FXML
@@ -256,4 +270,11 @@ public class MainPageController implements Initializable{
         });
     }
 
+
+    // CHRONO
+    @FXML
+    void chronoButtonStartClicked(ActionEvent e)
+    {
+        chrono.startThreaded(25 * 60 * 1000, true);
+    }
 }
