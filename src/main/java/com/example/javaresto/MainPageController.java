@@ -316,6 +316,7 @@ public class MainPageController implements Initializable{
 
         Money.setProductionPrice(list);
         expense.setText(Money.expense + "€");
+        profit.setText(Money.computeProfit() + "€");
 
         list.stream().forEach(dish -> comboBoxDish.getItems().add(dish.getName()));
         ;
