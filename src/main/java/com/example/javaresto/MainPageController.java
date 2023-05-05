@@ -79,6 +79,15 @@ public class MainPageController implements Initializable{
     private Button createOrderButton;
 
     @FXML
+    private Button preparedOrderButton;
+
+    @FXML
+    private Button deleteOrderButton;
+
+    @FXML
+    private ComboBox<?> comboBoxOrder;
+
+    @FXML
     private TextField textfieldName;
     public ArrayList<Dish> addedDishList = new ArrayList<>();
     public ArrayList<Dish> list = new ArrayList<>();
@@ -202,21 +211,24 @@ public class MainPageController implements Initializable{
 
         // Reserve the table
         String cibledTableInfo = "";
+        int aimTableId = 1;
         try {
             cibledTableInfo = MyrestaurantRoom2ComboBox.getValue();
+            aimTableId = Integer.parseInt(cibledTableInfo.split(" ")[1]);
         }catch(Exception e){
             try {
+                System.out.println(MyrestaurantRoom1ComboBox.getValue());
                 cibledTableInfo = MyrestaurantRoom1ComboBox.getValue();
-            }catch(Exception e2){
+                aimTableId = Integer.parseInt(cibledTableInfo.split(" ")[1]);
+            } catch(Exception e2){
                 System.out.println("No table selected");
             }
         }
 
-        int aimTableId = Integer.parseInt(cibledTableInfo.split(" ")[1]);
-
         Stream cibledRoomStream = Myrestaurant.getRooms().stream();
 
-        List cibledTableList = cibledRoomStream.flatMap(room -> ((Room) room).getTables().stream()).filter(table -> ((Table) table).getIdTable() == aimTableId).toList();
+        int finalAimTableId = aimTableId;
+        List cibledTableList = cibledRoomStream.flatMap(room -> ((Room) room).getTables().stream()).filter(table -> ((Table) table).getIdTable() == finalAimTableId).toList();
         Table cibledTable = (Table) cibledTableList.get(0);
         bookTable(order, cibledTable);
         // Display the order
@@ -298,6 +310,8 @@ public class MainPageController implements Initializable{
             displayListOrder();
             refreshDisplayInformationFront();
         });
+
+
     }
 
 

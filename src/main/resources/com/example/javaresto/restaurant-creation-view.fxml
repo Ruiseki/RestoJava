@@ -94,7 +94,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <ListView fx:id="listViewOrder" layoutX="188.0" layoutY="109.0" prefHeight="200.0" prefWidth="283.0" />
+            <ListView fx:id="listViewOrder" editable="true" layoutX="188.0" layoutY="109.0" prefHeight="200.0" prefWidth="283.0" />
             <HBox layoutY="59.0" prefHeight="100.0" spacing="20.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -107,7 +107,11 @@
                   <Button fx:id="createOrderButton" mnemonicParsing="false" text="Create an order" />
                </children>
             </HBox>
+            <Button layoutX="86.0" layoutY="268.0" mnemonicParsing="false" text="Button" />
          </children>
       </AnchorPane>
+      <ComboBox fx:id="comboBoxOrder" layoutX="865.0" layoutY="454.0" prefWidth="150.0" />
+      <Button fx:id="preparedOrderButton" layoutX="1015.0" layoutY="454.0" mnemonicParsing="false" text="Prepared" />
+      <Button fx:id="deleteOrderButton" layoutX="1079.0" layoutY="454.0" mnemonicParsing="false" text="Delete" />
    </children>
 </AnchorPane>
