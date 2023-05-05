@@ -3,13 +3,14 @@ package com.example.javaresto.classes;
 public class Chrono
 {
     private long value = 0, referenceTime;
-    private boolean pause = false, forceEnd = false, threadMode;
+    private boolean pause = false, forceEnd = false, threadMode, elapsed = true;
     private Thread task;
 
     public Chrono() {}
     
     public void startSync(long wallOfTheEnd, boolean reverse)
     {
+        elapsed = false;
         threadMode = false;
         boolean end = false;
         value = reverse ? wallOfTheEnd : 0;
@@ -35,6 +36,7 @@ public class Chrono
                     (!reverse && value >= wallOfTheEnd) || (reverse && value <= wallOfTheEnd) ? true : false;
 
         } while (!end);
+        elapsed = true;
         System.out.println("Time limit reached");
     }
     
@@ -64,6 +66,11 @@ public class Chrono
         else return false;
 
         return true;
+    }
+
+    public boolean isTimeElapsed()
+    {
+        return elapsed;
     }
 
     public void pause()
