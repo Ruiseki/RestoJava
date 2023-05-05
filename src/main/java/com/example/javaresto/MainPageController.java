@@ -182,6 +182,7 @@ public class MainPageController implements Initializable{
         cibledroom.getTables().add(newTable);
     }
 
+    List<Employee> MyrestaurantEmployeeList = new ArrayList<>();
     @FXML
     void btnCreateEmployeeClicked(ActionEvent event) {
         String name = createENameTextfield.getText();
@@ -189,9 +190,10 @@ public class MainPageController implements Initializable{
         String hoursWorked = createHourWorkedTextfield.getText();
 
         Employee newemployee = new Employee(name, job, Integer.parseInt(hoursWorked));
-
-
-
+        MyrestaurantEmployeeList.add(newemployee);
+        List employeeStream = MyrestaurantEmployeeList.stream().map(Employee::getName).toList();
+        comboBoxEmployee1.getItems().clear();
+        comboBoxEmployee1.getItems().addAll(employeeStream);
 
     }
 
