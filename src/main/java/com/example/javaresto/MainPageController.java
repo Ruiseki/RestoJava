@@ -93,6 +93,7 @@ public class MainPageController implements Initializable{
     public ArrayList<Dish> list = new ArrayList<>();
     public ArrayList<Ingredient> ingredientList = new ArrayList<>();
     public ArrayList<Order> listOrder = new ArrayList<>();
+    public ArrayList<Order> orderListHistory = new ArrayList<>();
     public Restaurant Myrestaurant;
     @FXML
     void btnCreateClicked(ActionEvent event) {
@@ -195,8 +196,10 @@ public class MainPageController implements Initializable{
     public void createOrder() {
         Double totalNetPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getNetPrice(), Double::sum);
         Double totalRawPrice = addedDishList.stream().reduce(0.0, (result, dish) -> result + dish.getGrossPrice(), Double::sum);
-        Order order = new Order(addedDishList, textfieldName.getText(), "Pending", totalNetPrice, totalRawPrice);
+        Order order = new Order(addedDishList, textfieldName.getText(), "Pending", totalNetPrice, totalRawPrice, orderListHistory.size()+1);
+        addedDishList.clear();
         listOrder.add(order);
+        orderListHistory.add(order);
         // Reserve the table
         String cibledTableInfo = "";
         int aimTableId = 0;
@@ -219,8 +222,7 @@ public class MainPageController implements Initializable{
         List cibledTableList = cibledRoomStream.flatMap(room -> ((Room) room).getTables().stream()).filter(table -> ((Table) table).getIdTable() == finalAimTableId).toList();
         Table cibledTable = (Table) cibledTableList.get(0);
         bookTable(order, cibledTable);
-        // Display the order
-        System.out.println(listOrder.get(0).getDishes() + " " + listOrder.get(0).getStatus() + " " + listOrder.get(0).getCustomer() + " " + listOrder.get(0).getNetPrice() + " " + listOrder.get(0).getRawPrice());
+
     }
 
     private void bookTable(Order order, Table cibledTable) {
@@ -256,10 +258,15 @@ public class MainPageController implements Initializable{
     public void displayListOrder() {
         listViewOrder.getItems().clear();
         comboBoxOrder.getItems().clear();
+
+        orderListHistory.stream().forEach(order -> {
+            listViewOrder.getItems().add("Order " + order.getId() + " : " + order.getCustomer()+ " for a total: " + order.getNetPrice() + "€   " + order.getStatus() );
+        });
+
         Myrestaurant.getRooms().stream().forEach(room -> {  // For each room
                 room.getTables().stream().forEach(table ->{ // For each table
                     try{
-                        addToListview(table.getOrder()); // Add the order to the list
+
                         addToComboBoxOrder(table); // Add the order to the comboBox
                     }catch(Exception e){
                         System.out.println("No order in table " + table.getIdTable());
