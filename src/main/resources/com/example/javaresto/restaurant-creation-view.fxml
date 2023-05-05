@@ -25,6 +25,17 @@
             <Label layoutX="36.0" layoutY="197.0" text="Description" />
             <TextField id="createRestaurantAdressTextfield" fx:id="createRAddressTextfield" layoutX="34.0" layoutY="154.0" prefHeight="25.0" prefWidth="204.0" />
             <Button id="createRestaurantButton" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnCreateClicked" prefHeight="25.0" prefWidth="76.0" text="Create" />
+            <Label layoutX="32.0" layoutY="711.0" prefHeight="29.0" prefWidth="216.0" text="Employee Creation">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="772.0" text="Name" />
+            <TextField fx:id="createENameTextfield" layoutX="17.0" layoutY="789.0" prefHeight="25.0" prefWidth="110.0" />
+            <Label layoutX="19.0" layoutY="834.0" text="hour worked" />
+            <Label layoutX="19.0" layoutY="894.0" text="job" />
+            <TextField id="createRestaurantAdressTextfield" fx:id="createHourWorkedTextfield" layoutX="17.0" layoutY="851.0" prefHeight="25.0" prefWidth="204.0" />
+            <Button id="createRestaurantButton" layoutX="70.0" layoutY="960.0" mnemonicParsing="false" onAction="#btnCreateEmployeeClicked" prefHeight="25.0" prefWidth="76.0" text="Create" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="377.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0">
@@ -109,6 +120,15 @@
             </HBox>
          </children>
       </AnchorPane>
+      <TextField id="createRestaurantAdressTextfield" fx:id="createJobTextfield" layoutX="116.0" layoutY="929.0" prefHeight="25.0" prefWidth="204.0" />
+      <ComboBox fx:id="comboBoxEmployee1" layoutX="371.0" layoutY="760.0" prefWidth="150.0" />
+      <Button fx:id="deleteEmployeeButton1" layoutX="521.0" layoutY="760.0" mnemonicParsing="false" text="delete" />
+      <Label layoutX="402.0" layoutY="724.0" prefHeight="29.0" prefWidth="248.0" text="Employee">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="950.0" layoutY="348.0" prefHeight="331.0" prefWidth="270.0">
       <ComboBox fx:id="comboBoxOrder" layoutX="865.0" layoutY="454.0" prefWidth="150.0" />
       <Button fx:id="preparedOrderButton" layoutX="1015.0" layoutY="454.0" mnemonicParsing="false" text="Prepared" />
       <Button fx:id="deleteOrderButton" layoutX="1079.0" layoutY="454.0" mnemonicParsing="false" text="Delete" />
@@ -128,34 +148,40 @@
             <Button fx:id="chronoButtonStop" layoutX="115.0" layoutY="166.0" mnemonicParsing="false" onAction="#chronoButtonStopClicked" text="Stop" />
          </children>
       </AnchorPane>
+      <AnchorPane layoutX="598.0" layoutY="722.0" prefHeight="186.0" prefWidth="591.0">
       <AnchorPane layoutX="397.0" layoutY="722.0" prefHeight="200.0" prefWidth="459.0">
          <children>
-            <Label layoutX="15.0" layoutY="23.0" prefHeight="55.0" prefWidth="94.0" text="Gain">
+            <Label layoutX="36.0" layoutY="37.0" prefHeight="55.0" prefWidth="94.0" text="Gain">
                <font>
                   <Font size="38.0" />
                </font>
             </Label>
             <Label fx:id="gain" layoutX="14.0" layoutY="71.0" prefHeight="58.0" prefWidth="86.0" text="0€">
+            <Label fx:id="gain" layoutX="33.0" layoutY="78.0" prefHeight="58.0" prefWidth="86.0" text="0€">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
             <Label layoutX="285.0" layoutY="23.0" prefHeight="55.0" prefWidth="142.0" text="Expense">
+            <Label layoutX="506.0" layoutY="46.0" prefHeight="55.0" prefWidth="142.0" text="Expense">
                <font>
                   <Font size="38.0" />
                </font>
             </Label>
             <Label fx:id="expense" layoutX="356.0" layoutY="71.0" prefHeight="58.0" prefWidth="70.0" text="0€">
+            <Label fx:id="expense" layoutX="512.0" layoutY="96.0" prefHeight="58.0" prefWidth="127.0" text="0€">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
             <Label layoutX="161.0" layoutY="23.0" prefHeight="55.0" prefWidth="94.0" text="Profit">
+            <Label layoutX="323.0" layoutY="35.0" prefHeight="55.0" prefWidth="94.0" text="Profit">
                <font>
                   <Font size="38.0" />
                </font>
             </Label>
             <Label fx:id="profit" layoutX="201.0" layoutY="71.0" prefHeight="58.0" prefWidth="90.0" text="0€">
+            <Label fx:id="profit" layoutX="328.0" layoutY="90.0" prefHeight="58.0" prefWidth="90.0" text="0€">
                <font>
                   <Font size="40.0" />
                </font>
