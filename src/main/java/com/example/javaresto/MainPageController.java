@@ -73,6 +73,18 @@ public class MainPageController implements Initializable{
     private ComboBox<String> comboBoxDish;
 
     @FXML
+    private ComboBox<?> comboBoxEmployee1;
+
+    @FXML
+    private TextField createENameTextfield;
+
+    @FXML
+    private TextField createHourWorkedTextfield;
+
+    @FXML
+    private TextField createJobTextfield;
+
+    @FXML
     private Button addDishButton;
 
     @FXML
@@ -168,6 +180,29 @@ public class MainPageController implements Initializable{
         int idNewTable = cibledroom.getTables().size() + 1;
         Table newTable = new Table(idNewTable, NumberPlacesNewTable, locationRoomNewTable);
         cibledroom.getTables().add(newTable);
+    }
+
+    @FXML
+    void btnCreateEmployeeClicked(ActionEvent event) {
+        String name = createENameTextfield.getText();
+        String job = createJobTextfield.getText();
+        String hoursWorked = createHourWorkedTextfield.getText();
+
+        Employee newemployee = new Employee(name, job, Integer.parseInt(hoursWorked));
+
+
+
+
+    }
+
+    /**
+     * Delete the employee in the listEmployee
+     * @param employee
+     * @param listEmployee
+     */
+
+    public void deleteEmployee(Employee employee, ArrayList<Employee> listEmployee) {
+        List<Employee> savedListEmployee = listEmployee.stream().filter(currentEmployee -> currentEmployee != employee).collect(Collectors.toList());
     }
 
     /** ----------------------------------------------------------------------------------------------------------------
