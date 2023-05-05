@@ -85,7 +85,7 @@ public class MainPageController implements Initializable{
     private Button deleteOrderButton;
 
     @FXML
-    private ComboBox<?> comboBoxOrder;
+    private ComboBox<String> comboBoxOrder;
 
     @FXML
     private TextField textfieldName;
@@ -189,16 +189,6 @@ public class MainPageController implements Initializable{
      */
 
     /**
-     * Delete the order in the listOrder
-     * @param order
-     * @param listOrder
-     */
-
-    public void deleteOrder(Order order, ArrayList<Order> listOrder) {
-        List<Order> savedListOrder = listOrder.stream().filter(currentOrder -> currentOrder != order).collect(Collectors.toList());
-    }
-
-    /**
      * Create the order calculating the net price and the raw price
      */
 
@@ -209,7 +199,7 @@ public class MainPageController implements Initializable{
         listOrder.add(order);
         // Reserve the table
         String cibledTableInfo = "";
-        int aimTableId = 1;
+        int aimTableId = 0;
         try {
             cibledTableInfo = MyrestaurantRoom2ComboBox.getValue();
             aimTableId = Integer.parseInt(cibledTableInfo.split(" ")[1]);
@@ -276,7 +266,36 @@ public class MainPageController implements Initializable{
                     }
                 });
         });
+    }
 
+    public Table actualTable () {
+        String selectedOrderString = comboBoxOrder.getValue();
+        selectedOrderString = selectedOrderString.split(" ")[3]; // collect Id of the table
+        int selectedOrderId = Integer.parseInt(selectedOrderString);
+        Stream cibledRoomStream = Myrestaurant.getRooms().stream();
+        List cibledTableList = cibledRoomStream.flatMap(room -> ((Room) room).getTables().stream()).filter(table -> ((Table) table).getIdTable() == selectedOrderId).toList();
+        Table cibledTable = (Table) cibledTableList.get(0);
+
+        return cibledTable;
+    }
+
+    public Order actualOrder(){
+        Table theActualTable = actualTable();
+        Order order = theActualTable.getOrder();
+        return order;
+    }
+
+    /**
+     * Delete the order in the listOrder and in the table
+     */
+
+    public void deleteOrder() {
+        Table myActualTable = actualTable();
+        myActualTable.setOrder(null);
+    }
+
+    private void addToComboBoxOrder(Table table) {
+        comboBoxOrder.getItems().add(table.getOrder().getCustomer() + " - Table " + table.getIdTable());
     }
 
     /**
@@ -307,7 +326,9 @@ public class MainPageController implements Initializable{
         list.add(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00, null));
 
         list.stream().forEach(dish -> comboBoxDish.getItems().add(dish.getName()));
-        ;
+
+
+
         addDishButton.setOnAction((e) -> addDishToList());
 
         createOrderButton.setOnAction((e) -> {
@@ -330,6 +351,7 @@ public class MainPageController implements Initializable{
 
 
     }
+
 
 
 
