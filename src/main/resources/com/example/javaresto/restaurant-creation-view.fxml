@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="1027.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaresto.MainPageController">
+   <children>
+    <AnchorPane layoutX="98.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0">
+         <children>
+            <Label layoutX="49.0" layoutY="14.0" prefHeight="29.0" prefWidth="216.0" text="Restaurant Creation">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="75.0" text="Name" />
+            <TextField fx:id="createRNameTextfield" layoutX="34.0" layoutY="92.0" prefHeight="25.0" prefWidth="110.0" />
+            <Label layoutX="36.0" layoutY="137.0" text="Address" />
+            <TextField id="createRestaurantDescriptionTextfield" fx:id="createRDescriptionTextfield" layoutX="34.0" layoutY="214.0" prefHeight="47.0" prefWidth="204.0" />
+            <Label layoutX="36.0" layoutY="197.0" text="Description" />
+            <TextField id="createRestaurantAdressTextfield" fx:id="createRAddressTextfield" layoutX="34.0" layoutY="154.0" prefHeight="25.0" prefWidth="204.0" />
+            <Button id="createRestaurantButton" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnCreateClicked" prefHeight="25.0" prefWidth="76.0" text="Create" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="377.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0">
+         <children>
+            <Label layoutX="49.0" layoutY="14.0" prefHeight="29.0" prefWidth="216.0" text="Our RESTAURANT">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="displayRNameLabel" layoutX="35.0" layoutY="75.0" text="Name" wrapText="true">
+               <graphic>
+                  <Label text="Name" />
+               </graphic>
+            </Label>
+            <Label fx:id="displayRAddressLabel" layoutX="35.0" layoutY="137.0" text="Address" wrapText="true">
+               <graphic>
+                  <Label text="Address" />
+               </graphic>
+            </Label>
+            <Label fx:id="displayRDescriptionLabel" layoutX="34.0" layoutY="181.0" prefHeight="58.0" prefWidth="212.0" text="Description" wrapText="true">
+               <graphic>
+                  <Label text="Description" />
+               </graphic>
+            </Label>
+            <Button id="createRestaurantButton" layoutX="75.0" layoutY="258.0" mnemonicParsing="false" onAction="#btnDisplayClicked" prefHeight="25.0" prefWidth="129.0" text="refresh informations" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="634.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0" />
+      <AnchorPane layoutX="626.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="523.0">
+         <children>
+            <Label fx:id="displayRoomNameLabel1" layoutX="35.0" layoutY="75.0" text="Name" wrapText="true" />
+            <Label fx:id="displayRoomNumTablesLabel1" layoutX="35.0" layoutY="137.0" text="Number Of table" wrapText="true" />
+            <Label fx:id="displayEmptyTablesLabel1" layoutX="35.0" layoutY="198.0" text="Number of empty Table" wrapText="true" />
+            <AnchorPane layoutX="280.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="253.0">
+               <children>
+                  <Label fx:id="displayRoomNameLabel2" layoutX="22.0" layoutY="72.0" text="Name" wrapText="true" />
+                  <Label fx:id="displayRoomNumTablesLabel2" layoutX="22.0" layoutY="138.0" text="Number Of table" wrapText="true" />
+                  <Label fx:id="displayEmptyTablesLabel2" layoutX="16.0" layoutY="205.0" text="Number of empty Table" wrapText="true" />
+                  <ComboBox fx:id="MyrestaurantRoom2ComboBox" layoutX="16.0" layoutY="255.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="43.0" layoutY="14.0" prefHeight="29.0" prefWidth="194.0" text="Rooms">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="MyrestaurantRoom1ComboBox" layoutX="35.0" layoutY="254.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="102.0" layoutY="351.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0">
+         <children>
+            <Label layoutX="17.0" layoutY="14.0" prefHeight="29.0" prefWidth="248.0" text="Add Table ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="75.0" text="Localisation" />
+            <Label layoutX="36.0" layoutY="137.0" text="Number of Places" />
+            <TextField id="createRestaurantAdressTextfield" fx:id="TablesPlacesNumberTextfield" layoutX="34.0" layoutY="154.0" prefHeight="25.0" prefWidth="204.0" />
+            <Button id="createRestaurantButton" fx:id="creationTableButton" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnTableCreateClicked" prefHeight="25.0" prefWidth="76.0" text="Create" />
+            <ComboBox fx:id="MyrestaurantRoomsComboBox" layoutX="36.0" layoutY="92.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="377.0" layoutY="344.0" maxHeight="-1.0" maxWidth="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="29.0" prefWidth="248.0" text="Add Order">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listViewOrder" layoutX="188.0" layoutY="109.0" prefHeight="200.0" prefWidth="283.0" />
+            <HBox layoutY="59.0" prefHeight="100.0" spacing="20.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="comboBoxDish" prefWidth="150.0" promptText="Select a dish" />
+                        <Button fx:id="addDishButton" mnemonicParsing="false" text="Add" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="textfieldName" />
+                  <Button fx:id="createOrderButton" mnemonicParsing="false" text="Create an order" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

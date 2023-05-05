@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/HelloApplication.java" afterDir="false" />
     </list>
-    <list id="7b57b5c2-2478-451b-b95b-45cc9c11438c" name="Changes by Utilisateur" comment="" />
+    <list id="69e84269-b33a-4e8b-a96c-953ee8df0405" name="Changes by Utilisateur" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,15 +19,33 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="table" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Dish.java" root0="FORCE_HIGHLIGHTING" />
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c45d70fc-6320-4061-be81-d9213bbf01cf" />
+        <option name="url" value="https://github.com/Ruiseki/RestoJava.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -36,27 +56,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;mathias&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/smajicmathias/Desktop/JavaResto&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "dev",
+    "last_directory_selection": "/Users/zook/IdeaProjects/JavaResto/src/main/resources/com/example/javaresto",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.javaresto.controller" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/javaresto/image" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.javaresto" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -67,31 +84,61 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683098832168</updated>
-      <workItem from="1683116590256" duration="29209000" />
-      <workItem from="1683212009070" duration="4069000" />
+      <workItem from="1683110166224" duration="8693000" />
+      <workItem from="1683156337827" duration="459000" />
+      <workItem from="1683156811956" duration="1120000" />
+      <workItem from="1683189564802" duration="12788000" />
     </task>
-    <task id="LOCAL-00001" summary="Add different functions to create a dish, add a dish and display the dish and the details of the dish">
-      <created>1683193437664</created>
+    <task id="LOCAL-00001" summary="creation of classes and Restaurant spaces (first commit)">
+      <created>1683118823477</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1683193437664</updated>
+      <updated>1683118823477</updated>
     </task>
-    <task id="LOCAL-00002" summary="Add different functions to create a ingredient, add a dish and display the dish and the details of the dish">
-      <created>1683202867209</created>
+    <task id="LOCAL-00002" summary="merge with Dev">
+      <created>1683156142181</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1683202867209</updated>
+      <updated>1683156142181</updated>
     </task>
-    <task id="LOCAL-00003" summary="Add different functions to calculate NetPrice and FXML">
-      <created>1683210910955</created>
+    <task id="LOCAL-00003" summary="fix bugs using comments onto Table branch">
+      <created>1683156711425</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1683210910955</updated>
+      <updated>1683156711425</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add templates for MainPageController (mainly Restaurant stuff)">
+      <created>1683201303885</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683201303885</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add templates for RestaurantCreation, rooms, Table creation">
+      <created>1683212108165</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683212108165</updated>
+    </task>
+    <task id="LOCAL-00006" summary="put the window to the right size">
+      <created>1683234710152</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683234710152</updated>
+    </task>
+    <task id="LOCAL-00007" summary="put the window to the right size">
+      <created>1683274435820</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683274435820</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,9 +156,13 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add different functions to create a dish, add a dish and display the dish and the details of the dish" />
-    <MESSAGE value="Add different functions to create a ingredient, add a dish and display the dish and the details of the dish" />
-    <MESSAGE value="Add different functions to calculate NetPrice and FXML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add different functions to calculate NetPrice and FXML" />
+    <MESSAGE value="creation of classes and Restaurant spaces (first commit)" />
+    <MESSAGE value="add methods for Restaurant, Room and Table" />
+    <MESSAGE value="merge with Dev" />
+    <MESSAGE value="fix bugs using comments onto Table branch" />
+    <MESSAGE value="add templates for MainPageController (mainly Restaurant stuff)" />
+    <MESSAGE value="add templates for RestaurantCreation, rooms, Table creation" />
+    <MESSAGE value="put the window to the right size" />
+    <option name="LAST_COMMIT_MESSAGE" value="put the window to the right size" />
   </component>
 </project>
