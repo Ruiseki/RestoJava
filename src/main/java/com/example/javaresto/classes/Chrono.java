@@ -15,7 +15,7 @@ public class Chrono
         boolean end = false;
         value = reverse ? wallOfTheEnd : 0;
         referenceTime = System.currentTimeMillis();
-        String oldTime = "00:00";
+        String oldTime = getTimeMinSec();
 
         do
         {
@@ -24,7 +24,7 @@ public class Chrono
                 if(!reverse)
                     value += Math.abs( referenceTime - System.currentTimeMillis() );
                 else
-                    value -= Math.abs( referenceTime - System.currentTimeMillis() ) * -1;
+                    value += Math.abs( referenceTime - System.currentTimeMillis() ) * -1;
             }
 
             referenceTime = System.currentTimeMillis();
@@ -33,7 +33,7 @@ public class Chrono
 
             end =   forceEnd ? true :
                     wallOfTheEnd == 0 ? false :
-                    (!reverse && value >= wallOfTheEnd) || (reverse && value <= wallOfTheEnd) ? true : false;
+                    (!reverse && value >= wallOfTheEnd) || (reverse && value <= 0) ? true : false;
 
         } while (!end);
         elapsed = true;
