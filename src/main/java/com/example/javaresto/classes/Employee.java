@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Employee {
 
-    private List<Employee> employeeList;
+    private ArrayList<Employee> employeeList;
     // name
     private String name;
     // job
@@ -20,7 +20,7 @@ public class Employee {
         this.employeeList = new ArrayList<>();
     }
 
-    public List<Employee> getEmployeeList() {
+    public ArrayList<Employee> getEmployeeList() {
         return employeeList;
     }
 
@@ -36,7 +36,7 @@ public class Employee {
         return hoursWorked;
     }
 
-    public void setEmployeeList(List<Employee> employeeList) {
+    public void setEmployeeList(ArrayList<Employee> employeeList) {
         this.employeeList = employeeList;
     }
 

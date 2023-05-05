@@ -109,6 +109,22 @@
             </HBox>
          </children>
       </AnchorPane>
+      <AnchorPane layoutX="950.0" layoutY="348.0" prefHeight="331.0" prefWidth="270.0">
+         <children>
+            <Label fx:id="chronoLabel" layoutX="93.0" layoutY="36.0" text="25:00">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="76.0" layoutY="97.0">
+               <children>
+                  <Button fx:id="chronoButtonStart" layoutX="19.0" mnemonicParsing="false" onAction="#chronoButtonStartClicked" text="Start service" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="chronoButtonPause" layoutX="112.0" layoutY="132.0" mnemonicParsing="false" onAction="#chronoButtonPauseClicked" text="Pause" />
+            <Button fx:id="chronoButtonStop" layoutX="115.0" layoutY="166.0" mnemonicParsing="false" onAction="#chronoButtonStopClicked" text="Stop" />
+         </children>
+      </AnchorPane>
       <ComboBox fx:id="comboBoxOrder" layoutX="865.0" layoutY="454.0" prefWidth="150.0" />
       <Button fx:id="preparedOrderButton" layoutX="1015.0" layoutY="454.0" mnemonicParsing="false" text="Prepared" />
       <Button fx:id="deleteOrderButton" layoutX="1079.0" layoutY="454.0" mnemonicParsing="false" text="Delete" />

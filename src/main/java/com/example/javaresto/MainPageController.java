@@ -88,11 +88,26 @@ public class MainPageController implements Initializable{
     private ComboBox<String> comboBoxOrder;
 
     @FXML
+    private Label chronoLabel;
+
+    @FXML
+    private Button chronoButtonStart;
+
+    @FXML
+    private Button chronoButtonStop;
+
+    @FXML
+    private Button chronoButtonPause;
+
+    @FXML
     private TextField textfieldName;
     public ArrayList<Dish> addedDishList = new ArrayList<>();
     public ArrayList<Dish> list = new ArrayList<>();
     public ArrayList<Ingredient> ingredientList = new ArrayList<>();
     public ArrayList<Order> listOrder = new ArrayList<>();
+
+    Chrono chrono;
+
     public ArrayList<Order> orderListHistory = new ArrayList<>();
     public Restaurant Myrestaurant;
     @FXML
@@ -230,7 +245,6 @@ public class MainPageController implements Initializable{
         System.out.println(order.getCustomer());
         cibledTable.setOrder(order);
     }
-
     /**
      * Put the status of the order to "prepared"
      * @param order
@@ -311,9 +325,6 @@ public class MainPageController implements Initializable{
      */
 
     public void addToListview(Order order) {
-        System.out.println(order);
-        System.out.println(listViewOrder.getItems());
-        System.out.println("Customer name : " + order.getCustomer() + " Status : " + order.getStatus());
         listViewOrder.getItems().add("Customer name : " + order.getCustomer() + " Status : " + order.getStatus());
     }
 
@@ -328,14 +339,13 @@ public class MainPageController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        chrono = new Chrono(chronoLabel);
         list.add(Dish.createDish("Pizza margherita", "Tomato, mozzarella, basilic", 9.00, 11.00, null));
         list.add(Dish.createDish("Spaghetti bolognese", "Pasta with bolognese sauce", 8.50, 10.00, null));
         list.add(Dish.createDish("Caesar salad", "Green salad, chicken, parmesan, croutons", 7.50, 9.00, null));
 
         list.stream().forEach(dish -> comboBoxDish.getItems().add(dish.getName()));
-
-
-
+        ;
         addDishButton.setOnAction((e) -> addDishToList());
 
         createOrderButton.setOnAction((e) -> {
@@ -362,4 +372,32 @@ public class MainPageController implements Initializable{
 
 
 
+    // CHRONO
+    @FXML
+    void chronoButtonStartClicked(ActionEvent e)
+    {
+        chrono.startThreaded(25 * 60 * 1000, true);
+    }
+
+    @FXML
+    void chronoButtonPauseClicked(ActionEvent e)
+    {
+        if(chrono.isPaused())
+        {
+            chrono.resume();
+            chronoButtonPause.setText("Pause");
+        }
+        else
+        {
+            chrono.pause();
+            chronoButtonPause.setText("Resume");
+        }
+    }
+
+    @FXML
+    void chronoButtonStopClicked(ActionEvent e)
+    {
+        chrono.stop();
+        chronoLabel.setText("25:00");
+    }
 }

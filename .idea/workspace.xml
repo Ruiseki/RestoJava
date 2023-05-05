@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="add possibility to prepare and delete command from table 1">
+    <list default="true" id="c9d10ffe-113e-4571-bfc1-2c0e2b305212" name="Changes" comment="add possibility to reserve table, add an order to the table and refresh after">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/MainPageController.java" afterDir="false" />
-    </list>
-    <list id="f12a2d91-9918-424a-bce3-98709a573ea8" name="Changes by Ruiseki" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Order.java" afterDir="false" />
-    </list>
-    <list id="35aa1284-ef31-41d5-8fe5-014a6002cbdb" name="Changes by Utilisateur" comment="add changes from killian">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,18 +30,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/example/javaresto/classes/Order.java">
-      <ranges>
-        <range start1="11" end1="11" start2="11" end2="12" changelist="35aa1284-ef31-41d5-8fe5-014a6002cbdb" />
-        <range start1="31" end1="31" start2="32" end2="36" changelist="35aa1284-ef31-41d5-8fe5-014a6002cbdb" />
-        <range start1="36" end1="37" start2="41" end2="42" changelist="f12a2d91-9918-424a-bce3-98709a573ea8" />
-        <range start1="42" end1="42" start2="47" end2="48" changelist="f12a2d91-9918-424a-bce3-98709a573ea8" />
-        <range start1="43" end1="45" start2="49" end2="49" changelist="f12a2d91-9918-424a-bce3-98709a573ea8" />
-        <range start1="46" end1="47" start2="50" end2="50" changelist="f12a2d91-9918-424a-bce3-98709a573ea8" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -57,19 +39,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -110,21 +91,7 @@
       <option name="project" value="LOCAL" />
       <updated>1683279531781</updated>
     </task>
-    <task id="LOCAL-00005" summary="add possibility to prepare and delete command from table 1">
-      <created>1683290613939</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1683290613939</updated>
-    </task>
-    <task id="LOCAL-00006" summary="add changes from killian">
-      <created>1683290640771</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1683290640771</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,9 +114,6 @@
     <MESSAGE value="merge with Dev" />
     <MESSAGE value="fix bugs using comments onto Table branch" />
     <MESSAGE value="add possibility to reserve table, add an order to the table and refresh after" />
-    <MESSAGE value="add possibility to prepare and delete command from table" />
-    <MESSAGE value="add possibility to prepare and delete command from table 1" />
-    <MESSAGE value="add changes from killian" />
-    <option name="LAST_COMMIT_MESSAGE" value="add changes from killian" />
+    <option name="LAST_COMMIT_MESSAGE" value="add possibility to reserve table, add an order to the table and refresh after" />
   </component>
 </project>

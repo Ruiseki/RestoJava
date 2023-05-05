@@ -9,9 +9,9 @@ public class Room {
     private String name;
     private int numberOfTable;
     private boolean available;
-    private List<Table> tables;
+    private ArrayList<Table> tables;
 
-    public Room(int id, String name ,List<Table> tablesList, boolean available) {
+    public Room(int id, String name, ArrayList<Table> tablesList, boolean available) {
         this.id = id;
         this.name = name;
         this.numberOfTable = tablesList.size();
