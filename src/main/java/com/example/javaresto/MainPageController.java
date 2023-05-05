@@ -133,12 +133,9 @@ public class MainPageController implements Initializable{
 
         MyrestaurantRoomsComboBox.getItems().clear();
         MyrestaurantRoomsComboBox.getItems().addAll(restaurantRoomNameStream);
-    }
-
-    @FXML
-    void btnDisplayClicked(ActionEvent event) {
         refreshDisplayInformationFront();
     }
+
 
     void refreshDisplayInformationFront(){
         displayRNameLabel.setText(Myrestaurant.getName());
@@ -176,6 +173,7 @@ public class MainPageController implements Initializable{
         int idNewTable = cibledroom.getTables().size() + 1;
         Table newTable = new Table(idNewTable, NumberPlacesNewTable, locationRoomNewTable);
         cibledroom.getTables().add(newTable);
+        refreshDisplayInformationFront();
     }
 
     /** ----------------------------------------------------------------------------------------------------------------
