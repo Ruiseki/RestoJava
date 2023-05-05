@@ -61,7 +61,7 @@ public class Restaurant {
     // ROOMS
     //-------------------//
     // create a new room
-    public void createRoom(int id, String name, List<Table> tablesList, boolean available) {
+    public void createRoom(int id, String name, ArrayList<Table> tablesList, boolean available) {
         Room room = new Room(id,name, tablesList, available);
         this.rooms.add(room);
     }
