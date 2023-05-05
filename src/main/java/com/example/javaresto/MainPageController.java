@@ -340,12 +340,12 @@ public class MainPageController implements Initializable{
         ;
         addDishButton.setOnAction((e) -> addDishToList());
 
-        comboBoxDishMenu.setOnMouseClicked(event -> {
+        /* comboBoxDishMenu.setOnMouseClicked(event -> {
             comboBoxDishMenu.getItems().clear();
             list.stream().map(Dish::getName).forEach(comboBoxDishMenu.getItems()::add);
-        });
+        }); */
 
-        comboBoxDishMenu.setOnAction(event -> {
+        /* comboBoxDishMenu.setOnAction(event -> {
             String selectedDishName = comboBoxDishMenu.getValue();
             List<Dish> matchingDishes = list.stream()
                     .filter(dish -> dish.getName().equals(selectedDishName))
@@ -356,7 +356,7 @@ public class MainPageController implements Initializable{
             } else {
                 descriptionDishMenuLabel.setText("");
             }
-        });
+        }); */
 
 
         createOrderButton.setOnAction((e) -> {
