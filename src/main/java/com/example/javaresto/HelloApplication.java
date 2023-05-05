@@ -45,7 +45,5 @@ public class HelloApplication extends Application {
         Dish.displayDishDetails("Caesar salad");
         
         launch();
-        //Chrono chrono = new Chrono();
-        //chrono.start(0, false);
     }
 }

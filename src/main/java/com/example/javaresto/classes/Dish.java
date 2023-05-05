@@ -13,7 +13,7 @@ public class Dish extends Ingredient {
     private double netPrice;
     private double grossPrice;
     private Image image;
-    private static List<Dish> dishList = new ArrayList<>();
+    private static ArrayList<Dish> dishList = new ArrayList<>();
 
     public Dish(String name, String description, double netPrice, double grossPrice, Image image) {
         super(name, grossPrice);
