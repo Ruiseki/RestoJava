@@ -5,4 +5,8 @@ module com.example.javaresto {
 
     opens com.example.javaresto to javafx.fxml;
     exports com.example.javaresto;
+    exports com.example.javaresto.classes;
+    opens com.example.javaresto.classes to javafx.fxml;
+    exports com.example.javaresto.controller;
+    opens com.example.javaresto.controller to javafx.fxml;
 }

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1027.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaresto.MainPageController">
+   <children>
+    <AnchorPane layoutX="98.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0">
+         <children>
+            <Label layoutX="49.0" layoutY="14.0" prefHeight="29.0" prefWidth="216.0" text="Restaurant Creation">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="75.0" text="Name" />
+            <TextField fx:id="createRNameTextfield" layoutX="34.0" layoutY="92.0" prefHeight="25.0" prefWidth="110.0" />
+            <Label layoutX="36.0" layoutY="137.0" text="Address" />
+            <TextField id="createRestaurantDescriptionTextfield" fx:id="createRDescriptionTextfield" layoutX="34.0" layoutY="214.0" prefHeight="47.0" prefWidth="204.0" />
+            <Label layoutX="36.0" layoutY="197.0" text="Description" />
+            <TextField id="createRestaurantAdressTextfield" fx:id="createRAddressTextfield" layoutX="34.0" layoutY="154.0" prefHeight="25.0" prefWidth="204.0" />
+            <Button id="createRestaurantButton" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnCreateClicked" prefHeight="25.0" prefWidth="76.0" text="Create" />
+            <Label layoutX="32.0" layoutY="711.0" prefHeight="29.0" prefWidth="216.0" text="Employee Creation">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="772.0" text="Name" />
+            <TextField fx:id="createENameTextfield" layoutX="17.0" layoutY="789.0" prefHeight="25.0" prefWidth="110.0" />
+            <Label layoutX="19.0" layoutY="834.0" text="hour worked" />
+            <Label layoutX="19.0" layoutY="894.0" text="job" />
+            <TextField id="createRestaurantAdressTextfield" fx:id="createHourWorkedTextfield" layoutX="17.0" layoutY="851.0" prefHeight="25.0" prefWidth="204.0" />
+            <Button id="createRestaurantButton" layoutX="70.0" layoutY="960.0" mnemonicParsing="false" onAction="#btnCreateEmployeeClicked" prefHeight="25.0" prefWidth="76.0" text="Create" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="377.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0">
+         <children>
+            <Label layoutX="49.0" layoutY="14.0" prefHeight="29.0" prefWidth="216.0" text="Our RESTAURANT">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="displayRNameLabel" layoutX="35.0" layoutY="75.0" text="Name" wrapText="true">
+               <graphic>
+                  <Label text="Name" />
+               </graphic>
+            </Label>
+            <Label fx:id="displayRAddressLabel" layoutX="35.0" layoutY="137.0" text="Address" wrapText="true">
+               <graphic>
+                  <Label text="Address" />
+               </graphic>
+            </Label>
+            <Label fx:id="displayRDescriptionLabel" layoutX="34.0" layoutY="181.0" prefHeight="58.0" prefWidth="212.0" text="Description" wrapText="true">
+               <graphic>
+                  <Label text="Description" />
+               </graphic>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="634.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0" />
+      <AnchorPane layoutX="626.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="523.0">
+         <children>
+            <Label fx:id="displayRoomNameLabel1" layoutX="35.0" layoutY="75.0" text="Name" wrapText="true" />
+            <Label fx:id="displayRoomNumTablesLabel1" layoutX="35.0" layoutY="137.0" text="Number Of table" wrapText="true" />
+            <Label fx:id="displayEmptyTablesLabel1" layoutX="35.0" layoutY="198.0" text="Number of empty Table" wrapText="true" />
+            <AnchorPane layoutX="280.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="253.0">
+               <children>
+                  <Label fx:id="displayRoomNameLabel2" layoutX="22.0" layoutY="72.0" text="Name" wrapText="true" />
+                  <Label fx:id="displayRoomNumTablesLabel2" layoutX="22.0" layoutY="138.0" text="Number Of table" wrapText="true" />
+                  <Label fx:id="displayEmptyTablesLabel2" layoutX="16.0" layoutY="205.0" text="Number of empty Table" wrapText="true" />
+                  <ComboBox fx:id="MyrestaurantRoom2ComboBox" layoutX="16.0" layoutY="255.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="43.0" layoutY="14.0" prefHeight="29.0" prefWidth="194.0" text="Rooms">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="MyrestaurantRoom1ComboBox" layoutX="35.0" layoutY="254.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="102.0" layoutY="351.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="279.0">
+         <children>
+            <Label layoutX="17.0" layoutY="14.0" prefHeight="29.0" prefWidth="248.0" text="Add Table ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="75.0" text="Localisation" />
+            <Label layoutX="36.0" layoutY="137.0" text="Number of Places" />
+            <TextField id="createRestaurantAdressTextfield" fx:id="TablesPlacesNumberTextfield" layoutX="34.0" layoutY="154.0" prefHeight="25.0" prefWidth="204.0" />
+            <Button id="createRestaurantButton" fx:id="creationTableButton" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnTableCreateClicked" prefHeight="25.0" prefWidth="76.0" text="Create" />
+            <ComboBox fx:id="MyrestaurantRoomsComboBox" layoutX="36.0" layoutY="92.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="377.0" layoutY="344.0" maxHeight="-1.0" maxWidth="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="497.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="29.0" prefWidth="248.0" text="Add Order">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listViewOrder" editable="true" fixedCellSize="-10.0" layoutX="188.0" layoutY="109.0" prefHeight="200.0" prefWidth="283.0" />
+            <HBox layoutY="59.0" prefHeight="100.0" spacing="20.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="comboBoxDish" prefWidth="150.0" promptText="Select a dish" />
+                        <Button fx:id="addDishButton" mnemonicParsing="false" text="Add" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="textfieldName" />
+               </children>
+            </HBox>
+            <Button fx:id="createOrderButton" layoutX="387.0" layoutY="59.0" mnemonicParsing="false" text="Create an order" />
+         </children>
+      </AnchorPane>
+      <TextField id="createRestaurantAdressTextfield" fx:id="createJobTextfield" layoutX="116.0" layoutY="929.0" prefHeight="25.0" prefWidth="204.0" />
+      <ComboBox fx:id="comboBoxEmployee1" layoutX="371.0" layoutY="760.0" prefWidth="150.0" />
+      <Button fx:id="deleteEmployeeButton1" layoutX="521.0" layoutY="760.0" mnemonicParsing="false" text="delete" />
+      <Label layoutX="402.0" layoutY="724.0" prefHeight="29.0" prefWidth="248.0" text="Employee">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="1036.0" layoutY="55.0" prefHeight="331.0" prefWidth="194.0">
+         <children>
+            <Label fx:id="chronoLabel" layoutX="93.0" layoutY="36.0" text="25:00">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="76.0" layoutY="97.0">
+               <children>
+                  <Button fx:id="chronoButtonStart" layoutX="19.0" mnemonicParsing="false" onAction="#chronoButtonStartClicked" text="Start service" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="chronoButtonPause" layoutX="112.0" layoutY="132.0" mnemonicParsing="false" onAction="#chronoButtonPauseClicked" text="Pause" />
+            <Button fx:id="chronoButtonStop" layoutX="115.0" layoutY="166.0" mnemonicParsing="false" onAction="#chronoButtonStopClicked" text="Stop" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="919.0" layoutY="773.0" prefHeight="186.0" prefWidth="321.0">
+         <children>
+            <Label layoutX="15.0" layoutY="7.0" prefHeight="55.0" prefWidth="94.0" text="Gain">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label fx:id="gain" layoutX="173.0" layoutY="6.0" prefHeight="58.0" prefWidth="150.0" text="0€">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="122.0" prefHeight="55.0" prefWidth="142.0" text="Expense">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label fx:id="expense" layoutX="171.0" layoutY="121.0" prefHeight="58.0" prefWidth="150.0" text="0€">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="66.0" prefHeight="55.0" prefWidth="94.0" text="Profit">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label fx:id="profit" layoutX="171.0" layoutY="64.0" prefHeight="58.0" prefWidth="150.0" text="0€">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="874.0" layoutY="405.0" prefHeight="251.0" prefWidth="283.0">
+      <ComboBox fx:id="comboBoxOrder" layoutX="8.0" layoutY="101.0" prefWidth="150.0" />
+      <Button fx:id="preparedOrderButton" layoutX="158.0" layoutY="101.0" mnemonicParsing="false" text="Prepared" />
+      <Button fx:id="deleteOrderButton" layoutX="222.0" layoutY="101.0" mnemonicParsing="false" text="Delete" />
+      </AnchorPane>
+   </children>
+</AnchorPane>
